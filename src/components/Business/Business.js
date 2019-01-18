@@ -1,4 +1,4 @@
-import react from 'react';
+import React from 'react';
 
 
 //JS object will contain some static information anbout business, used as placeholder and will be removed later when restraurants info will be added from YELP api
