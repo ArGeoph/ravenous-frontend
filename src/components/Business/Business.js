@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './Business.css';
 
 //JS object will contain some static information anbout business, used as placeholder and will be removed later when restraurants info will be added from YELP api
 const business = {

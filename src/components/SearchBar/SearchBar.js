@@ -6,7 +6,7 @@ const sortByOptions = {
     'Best Match' : "best_match",
     'Highest Rated' : "rating",
     'Most Reviewed' : "review_count"
-}
+};
 
 //React component Seach bar class
 export class SearchBar extends React.Component {
@@ -26,7 +26,7 @@ export class SearchBar extends React.Component {
             <div className="SearchBar">
                 <div className="SearchBar-sort-options">
                     <ul>
-                        {this.renderSortByOptions()};
+                        {this.renderSortByOptions()}
                     </ul>
                 </div>
 
