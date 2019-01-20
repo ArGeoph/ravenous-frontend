@@ -1,22 +1,11 @@
 import React from 'react';
 import './Business.css';
 
-//JS object will contain some static information anbout business, used as placeholder and will be removed later when restraurants info will be added from YELP api
-const business = {
-    imageSrc: 'https://s3.amazonaws.com/codecademy-content/programs/react/ravenous/pizza.jpg',
-    name: 'MarginOtto Pizzeria',
-    address: '1010 Paddington Way',
-    city: 'Flavortown',
-    state: 'NY',
-    zipCode: '10101',
-    category: 'Italian',
-    rating: 4.5,
-    reviewCount: 90
-};
-
 //React component class, which will be used to render information about each business
 export class Business extends React.Component {
     render() {
+        const business = this.props.business;
+        
         return (
             <div className="Business">
                 <div className="image-container">
