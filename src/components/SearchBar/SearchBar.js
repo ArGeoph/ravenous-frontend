@@ -11,13 +11,41 @@ const sortByOptions = {
 //React component Seach bar class
 export class SearchBar extends React.Component {
 
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            term : '',
+            location: '',
+            sortBy: 'best_match'
+        };        
+    }
+
+    //Function checking if the current search option is selected and returnig css class name active if it's the case
+    getSortByClass (sortByOption) {
+        if (sortByOption === this.state.sortBy) {
+            return 'active';
+        }
+        else {
+            return '';
+        }
+    }
+    
+    handleSortByChange(sortByOption) {
+        this.setState({sortBy: sortByOption});
+    }
+
     //Will return li elements containing search options for users
     renderSortByOptions() {
         return Object.keys(sortByOptions).map( sortByOption => {
             let sortByOptionValue = sortByOptions[sortByOption];
 
-            return <li key={sortByOptionValue}>{sortByOption}</li>
-        })
+            return <li className={this.getSortByClass(sortByOptionValue)} 
+                        key={sortByOptionValue}
+                        onClick={this.handleSortByChange.bind(this, sortByOptionValue)}>
+                            {sortByOption}
+                    </li>
+        });
     }
 
 
@@ -39,8 +67,6 @@ export class SearchBar extends React.Component {
                     <a>Let's Go</a>
                 </div>
             </div>
-        )
+        );
     }
 }
-
-//export default SearchBar;
