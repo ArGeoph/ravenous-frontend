@@ -18,7 +18,11 @@ export class SearchBar extends React.Component {
             term : '',
             location: '',
             sortBy: 'best_match'
-        };        
+        };   
+        
+        this.handleTermChange = this.handleTermChange.bind(this);
+        this.handleLocationChange = this.handleLocationChange.bind(this);
+        this.handleSearch = this.handleSearch.bind(this);
     }
 
     //Function checking if the current search option is selected and returnig css class name active if it's the case
@@ -30,10 +34,31 @@ export class SearchBar extends React.Component {
             return '';
         }
     }
-    
+
+//============================================================================    
+//Event handlers
+    handleTermChange(event) {
+        this.setState({
+            term: event.target.value
+        });
+    }
+
+    handleLocationChange(event) {
+        this.setState({
+            location: event.target.value
+        });
+    }
+
+
     handleSortByChange(sortByOption) {
         this.setState({sortBy: sortByOption});
     }
+
+    handleSearch(event) {
+        this.props.searchYelp(this.state.term, this.state.location, this.state.sortBy);
+        event.preventDefault();
+    }
+//============================================================================
 
     //Will return li elements containing search options for users
     renderSortByOptions() {
@@ -48,9 +73,9 @@ export class SearchBar extends React.Component {
         });
     }
 
-
     render() {
         return (
+
             <div className="SearchBar">
                 <div className="SearchBar-sort-options">
                     <ul>
@@ -59,12 +84,14 @@ export class SearchBar extends React.Component {
                 </div>
 
                 <div className="SearchBar-fields">
-                    <input placeholder="Search Businesses" />
-                    <input placeholder="Where?" />
+                    <input onChange={this.handleTermChange}
+                            placeholder="Search Businesses" />
+                    <input onChange={this.handleLocationChange}
+                            placeholder="Where?" />
                 </div> 
 
                 <div className="SearchBar-submit">
-                    <a>Let's Go</a>
+                    <a onClick={this.handleSearch}>Let's Go</a>
                 </div>
             </div>
         );
