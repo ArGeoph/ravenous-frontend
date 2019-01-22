@@ -7,7 +7,7 @@ export const Yelp = {
                         'Authorization' : `Bearer ${apiKey}`
                     }}
         ).then((response) => { 
-            return response.json()
+            return response.json();
         }).then((jsonResponse) => {
             if (jsonResponse.businesses) {
                 return jsonResponse.businesses.map((business) => {
@@ -21,7 +21,8 @@ export const Yelp = {
                         zipCode: business.location.zip_code,
                         category: business.categories.title ,
                         rating: business.rating,
-                        reviewCount: business.review_count
+                        reviewCount: business.review_count,
+                        url: business.url
                     };
                 });
             }
