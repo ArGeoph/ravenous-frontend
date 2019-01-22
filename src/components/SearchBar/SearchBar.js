@@ -51,13 +51,20 @@ export class SearchBar extends React.Component {
 
 
     handleSortByChange(sortByOption) {
-        this.setState({sortBy: sortByOption});
+        this.setState({
+            sortBy: sortByOption
+        });
+
+        this.props.searchYelp(this.state.term, this.state.location, this.state.sortBy);
     }
 
     handleSearch(event) {
-        this.props.searchYelp(this.state.term, this.state.location, this.state.sortBy);
-        event.preventDefault();
+        if (event.type === "click" || event.keyCode === 13) {
+            this.props.searchYelp(this.state.term, this.state.location, this.state.sortBy);
+            event.preventDefault();
+        }
     }
+    
 //============================================================================
 
     //Will return li elements containing search options for users
@@ -84,10 +91,12 @@ export class SearchBar extends React.Component {
                 </div>
 
                 <div className="SearchBar-fields">
-                    <input onChange={this.handleTermChange}
-                            placeholder="Search Businesses" />
-                    <input onChange={this.handleLocationChange}
-                            placeholder="Where?" />
+                    <form method="#" onKeyDown={this.handleSearch} autoComplete={true} >
+                        <input onChange={this.handleTermChange}
+                                placeholder="Search Businesses" />
+                        <input onChange={this.handleLocationChange}
+                                placeholder="Where?" />
+                    </form>
                 </div> 
 
                 <div className="SearchBar-submit">

@@ -20,13 +20,14 @@ export class Business extends React.Component {
                             <p>{business.address}</p>
                             <p>{business.city}</p>
                             <p>{business.state} {business.zipCode}</p>
+                            <p>{business.phone}</p>
                         </div>
 
                         <div className="Business-reviews">
                             <h3>{business.category}</h3>
                             <h3 className="rating">{business.rating} star{business.rating > 0 && business.rating <= 1 ? "" : "s"}</h3>
                             <p>{business.reviewCount} review{business.reviewCount === 1 ? "" : "s"}</p>
-                            <a href={business.url} target="_blank">Open restaurant's page</a>
+                            <a href={business.url} target="_blank">Open business's page</a>
                         </div>
                     </div>   
                 </div>           
