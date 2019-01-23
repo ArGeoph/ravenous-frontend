@@ -23,7 +23,8 @@ export const Yelp = {
                         rating: business.rating,
                         reviewCount: business.review_count,
                         url: business.url,
-                        phone: business.phone
+                        phone: business.phone,
+                        priceRange: business.price
                     };
                 });
             }

@@ -25,9 +25,10 @@ export class Business extends React.Component {
 
                         <div className="Business-reviews">
                             <h3>{business.category}</h3>
+                            <h3>{business.priceRange}</h3>
                             <h3 className="rating">{business.rating} star{business.rating > 0 && business.rating <= 1 ? "" : "s"}</h3>
                             <p>{business.reviewCount} review{business.reviewCount === 1 ? "" : "s"}</p>
-                            <a href={business.url} target="_blank">Open business's page</a>
+                            <a href={business.url} target="_blank" rel="noopener noreferrer">Open restaurant's page</a>
                         </div>
                     </div>   
                 </div>           

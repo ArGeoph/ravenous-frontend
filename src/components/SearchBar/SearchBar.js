@@ -91,7 +91,7 @@ export class SearchBar extends React.Component {
                 </div>
 
                 <div className="SearchBar-fields">
-                    <form method="#" onKeyDown={this.handleSearch} autocomplete="on" >
+                    <form method="#" onKeyDown={this.handleSearch} autoComplete="on" >
                         <input onChange={this.handleTermChange}
                                 placeholder="Search Businesses" />
                         <input onChange={this.handleLocationChange}
