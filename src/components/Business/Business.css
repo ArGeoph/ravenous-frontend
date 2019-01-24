@@ -7,6 +7,8 @@
     border: 2px solid black;
     border-radius: 9px;
     padding: 5px 10px;
+    transition: padding 0.5s;
+    /* transition: width .1s; */
   }
   
  .image-container {
@@ -22,6 +24,12 @@
     margin: 0 0;
     padding: 0 0;
     border-radius: 5px;
+  }
+
+  .Business:hover  {
+    /* height: 31rem;
+    width: 26rem; */
+    padding: 8px 16px;
   }
 
   .Business h2 {
