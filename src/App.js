@@ -26,7 +26,7 @@ class App extends React.Component {
       }
       else {
         this.setState({
-                  businesses: []
+          businesses: []
         });
       }
     });

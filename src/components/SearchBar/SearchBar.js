@@ -49,7 +49,6 @@ export class SearchBar extends React.Component {
         });
     }
 
-
     handleSortByChange(sortByOption) {
         this.setState({
             sortBy: sortByOption
@@ -63,8 +62,7 @@ export class SearchBar extends React.Component {
             this.props.searchYelp(this.state.term, this.state.location, this.state.sortBy);
             event.preventDefault();
         }
-    }
-    
+    }    
 //============================================================================
 
     //Will return li elements containing search options for users

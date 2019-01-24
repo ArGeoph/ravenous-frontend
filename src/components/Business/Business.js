@@ -17,7 +17,7 @@ export class Business extends React.Component {
                     <h2>{business.name}</h2>  
                     <div className="Business-information">
                         <div className="Business-address">
-                            <p>{business.address}</p>
+                            <a href={"https://www.google.com/maps/place/" + business.address + " " + business.city} target="_blank">{business.address}</a>
                             <p>{business.city}</p>
                             <p>{business.state} {business.zipCode}</p>
                             <p>{business.phone}</p>
