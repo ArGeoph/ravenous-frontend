@@ -1,5 +1,11 @@
 import React from 'react';
 import './Business.css';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+import { faPhone } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faMapMarkerAlt, faPhone);
 
 //React component class, which will be used to render information about each business
 export class Business extends React.Component {
@@ -17,10 +23,16 @@ export class Business extends React.Component {
                     <h2>{business.name}</h2>  
                     <div className="Business-information">
                         <div className="Business-address">
-                            <a href={"https://www.google.com/maps/place/" + business.address + " " + business.city} target="_blank">{business.address}</a>
+                            <p>                                
+                                <a href={"https://www.google.com/maps/place/" + business.address + " " + business.city} target="_blank" rel="noopener noreferrer">{business.address}  </a>
+                                <FontAwesomeIcon icon="map-marker-alt" />
+                            </p>
                             <p>{business.city}</p>
                             <p>{business.state} {business.zipCode}</p>
-                            <p>{business.phone}</p>
+                            <p>
+                                {business.phone} 
+                                <FontAwesomeIcon icon="phone" />
+                            </p>
                         </div>
 
                         <div className="Business-reviews">
