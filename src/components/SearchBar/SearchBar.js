@@ -99,7 +99,7 @@ export class SearchBar extends React.Component {
                                 />
                         <input onChange={this.handleLocationChange}
                                 placeholder="Where?" 
-                                required={this.props.required} />
+                                required />
                     </form>
                 </div> 
 
