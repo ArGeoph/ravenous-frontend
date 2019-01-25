@@ -9,7 +9,6 @@ export const Yelp = {
         ).then((response) => { 
             return response.json();
         }).then((jsonResponse) => {
-            if (jsonResponse.businesses) {
                 return jsonResponse.businesses.map((business) => {
                     return {
                         id: business.id,
@@ -27,10 +26,8 @@ export const Yelp = {
                         priceRange: business.price
                     };
                 });
-            }
-            else {
-                console.log("Nothing was returned. Try again later");
-            }
-        });
+            }).catch(() => {
+                return [];
+            });
     }
 }

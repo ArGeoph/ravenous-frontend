@@ -2,7 +2,7 @@ import React from 'react';
 import './BusinessList.css';
 import { Business } from '../Business/Business';
 
-//React component used to nicely render information about restaurants received from YELP API, for now we will use static object business in Business.js
+//React component used to nicely render information about restaurants received from YELP API
 export class BusinessList extends React.Component {
     render() {
         return (

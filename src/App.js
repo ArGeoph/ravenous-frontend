@@ -3,6 +3,7 @@ import './App.css';
 import { BusinessList } from './components/BusinessList/BusinessList.js';
 import { SearchBar } from './components/SearchBar/SearchBar.js';
 import { Yelp } from './util/Yelp';
+import { Error } from './util/Error';
 
 
 class App extends React.Component {
@@ -10,7 +11,8 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      businesses: []
+      businesses: [],
+      errorMessage: ""
     };
 
     this.searchYelp = this.searchYelp.bind(this);
@@ -21,12 +23,14 @@ class App extends React.Component {
     Yelp.search(term, location, sortBy).then((businesses) => {
       if (businesses.length > 0) {
         this.setState({
-          businesses: businesses
+          businesses: businesses,
+          errorMessage: ""
         });
       }
       else {
         this.setState({
-          businesses: []
+          businesses: [], 
+          errorMessage: "Your search hasn't returned any results. Check your input, or try later"
         });
       }
     });
@@ -39,6 +43,7 @@ class App extends React.Component {
         <h1>Ravenous</h1>
         <SearchBar searchYelp = {this.searchYelp} />
         <BusinessList businesses = {this.state.businesses} />
+        <Error errorMessage = {this.state.errorMessage} />
       </div>
     );
   }

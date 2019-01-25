@@ -59,6 +59,10 @@ export class SearchBar extends React.Component {
 
     handleSearch(event) {
         if (event.type === "click" || event.keyCode === 13) {
+            this.setState({
+                errorMessage: ""
+            });
+
             this.props.searchYelp(this.state.term, this.state.location, this.state.sortBy);
             event.preventDefault();
         }
@@ -91,9 +95,11 @@ export class SearchBar extends React.Component {
                 <div className="SearchBar-fields">
                     <form method="#" onKeyDown={this.handleSearch} autoComplete="on" >
                         <input onChange={this.handleTermChange}
-                                placeholder="Search Businesses" />
+                                placeholder="Search Businesses" 
+                                />
                         <input onChange={this.handleLocationChange}
-                                placeholder="Where?" />
+                                placeholder="Where?" 
+                                required={this.props.required} />
                     </form>
                 </div> 
 
