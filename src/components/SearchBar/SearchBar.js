@@ -17,7 +17,9 @@ export class SearchBar extends React.Component {
         this.state = {
             term : '',
             location: '',
-            sortBy: 'best_match'
+            sortBy: 'best_match',
+            termError: false,
+            locationError: false            
         };   
         
         this.handleTermChange = this.handleTermChange.bind(this);
@@ -38,18 +40,23 @@ export class SearchBar extends React.Component {
 //============================================================================    
 //Event handlers
     handleTermChange(event) {
+
         this.setState({
-            term: event.target.value
+            term: event.target.value,
+            termError: event.target.value.length > 0 && false
         });
     }
 
     handleLocationChange(event) {
+        
         this.setState({
-            location: event.target.value
+            location: event.target.value,
+            locationError: event.target.value.length > 0 && false
         });
     }
 
     handleSortByChange(sortByOption) {
+
         this.setState({
             sortBy: sortByOption
         });
@@ -58,13 +65,41 @@ export class SearchBar extends React.Component {
     }
 
     handleSearch(event) {
+
         if (event.type === "click" || event.keyCode === 13) {
+            //Call clearErrorMessageAndSearchResults function located in App.js to clear possible error message and previous search results
+            this.props.clearErrorMessageAndSearchResults();
 
-            this.setState({
-                errorMessage: "",
-            });
+            //Check if user entered search request and location
+            if (this.state.location === "" && this.state.term === "") {
+                this.setState({
+                    termError: true,
+                    locationError: true
+                });
+              }
+            else if (this.state.term === "") {
+                this.setState({
+                    termError: true,
+                    locationError: false
+                });
+            }
+            else if (this.state.location === "") {
+                this.setState({
+                    termError: false,
+                    locationError: true
+                });
+            }
+        
+            else {//if user has entered search request and location send GET request to the YELP API
+                //if both field aren't empty clear error flags
+                this.setState({
+                    termError: false,
+                    locationError: false
+                });
 
-            this.props.searchYelp(this.state.term, this.state.location, this.state.sortBy);
+                this.props.searchYelp(this.state.term, this.state.location, this.state.sortBy);
+            }
+
             event.preventDefault(); 
         }
     }    
@@ -95,13 +130,20 @@ export class SearchBar extends React.Component {
 
                 <div className="SearchBar-fields">
                     <form method="#" onKeyDown={this.handleSearch} autoComplete="on" >
-                        <input onChange={this.handleTermChange}
-                                placeholder="Search Businesses"
-                                className={this.props.termError && "inputFieldError"} 
-                                />
-                        <input onChange={this.handleLocationChange}
-                                placeholder="Where?" 
-                                className={this.props.locationError && "inputFieldError"} />
+                        <div>
+                            <div className="inputFieldErrorMessage">{this.state.termError && "The field cannot be empty"}</div>
+                            <input onChange={this.handleTermChange}
+                                    placeholder="Search Businesses"
+                                    className={this.state.termError && "inputFieldError"} 
+                                    />
+                        </div>
+
+                        <div>
+                            <div className="inputFieldErrorMessage">{this.state.locationError && "The field cannot be empty"}</div>               
+                            <input onChange={this.handleLocationChange}
+                                    placeholder="Where?" 
+                                    className={this.state.locationError && "inputFieldError"} />    
+                        </div>                            
                     </form>
                 </div> 
 

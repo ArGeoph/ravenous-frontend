@@ -53,22 +53,21 @@
   }
   
   .SearchBar-fields form {
-    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    
   }
+  
   .SearchBar-fields input {
     width: 21rem;
     padding: .66rem 1rem;
-    margin-right: 2.22rem;
-    /* border: 1px solid #fff; */
+    margin: 0px 2rem;
     border-radius: 4px;
     font-size: .77rem;
     font-weight: 500;
+    justify-content: center;
   }
-  
-  .SearchBar-fields input:last-child {
-    margin-right: 0;
-  }
-  
+
   .SearchBar-submit {
     text-align: center;
   }
@@ -88,8 +87,19 @@
   }
 
   .inputFieldError {
-    border: 3px solid red;
+    border: 4px solid red;
     transition: border 0.3s;
+  }
+
+  .inputFieldErrorMessage {
+    text-align: center;
+    color: red;
+    padding: 0 0;
+    font-size: 1.2em;
+    width: 300px;
+    height: 30px;
+    margin: 0 auto;
+    font-weight: bold;
   }
   
   @media only screen and (max-width: 890px) {
@@ -105,10 +115,21 @@
     .SearchBar-fields {
       flex-direction: column;
       align-items: center;
+      justify-content: center;
+    }
+
+    .SearchBar-fields form {
+      text-align: center;
+      margin: 0 auto;
     }
   
     .SearchBar-fields input {
       margin-right: 0;
       margin-bottom: .86rem;
+    }
+    .inputFieldErrorMessage {
+      color: red;
+      padding: 0px 5px;
+      font-size: .7em;
     }
   }

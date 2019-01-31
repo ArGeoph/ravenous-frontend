@@ -13,44 +13,15 @@ class App extends React.Component {
     this.state = {
       businesses: [],
       errorMessage: "",
-      termError: false,
-      locationError: false
     };
 
     this.searchYelp = this.searchYelp.bind(this);
+    this.clearErrorMessageAndSearchResults = this.clearErrorMessageAndSearchResults.bind(this);
   } 
 
   searchYelp(term, location, sortBy) {
 
-    if (location === "" && term === "") {
-      this.setState({
-          errorMessage: "Location and business fields cannot be empty! Please check your input",
-          termError: true,
-          locationError: true
-      });
-    }
-    else if (term === "") {
-        this.setState({
-            errorMessage: "Bussiness field cannot be empty! Please check your input",
-            termError: true,
-            locationError: false
-        });
-    }
-    else if (location === "") {
-        this.setState({
-            errorMessage: "Location field cannot be empty! Please check your input",
-            termError: false,
-            locationError: true
-        });
-    }
-
-    else {
       Yelp.search(term, location, sortBy).then((businesses) => {
-        this.setState({
-          termError: false,
-          locationError: false
-        });
-        
         if (businesses.length > 0) {
           this.setState({
             businesses: businesses,
@@ -59,12 +30,20 @@ class App extends React.Component {
         }
         else {
           this.setState({
-            businesses: [], 
-            errorMessage: "Your search hasn't returned any results. Check your input, or try later"
-          });
+            businesses: [],
+            errorMessage: "Your search hasn't returned any results. Please check your input or the Internet connection"
+          })
         }
-      });
-    }   
+      }); 
+  }
+
+  //Function will be called from searchBar component to clear "Your search hasn't returned any results" error message
+  clearErrorMessageAndSearchResults() {
+
+    this.setState({
+      businesses: [],
+      errorMessage: ""
+    });
   }
 
   render() {
@@ -72,7 +51,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <h1>Ravenous</h1>
-        <SearchBar termError={this.state.termError} locationError={this.state.locationError} searchYelp = {this.searchYelp} />
+        <SearchBar searchYelp = {this.searchYelp} clearErrorMessageAndSearchResults = {this.clearErrorMessageAndSearchResults} />
         <BusinessList businesses = {this.state.businesses} />
         <Error errorMessage = {this.state.errorMessage} />
       </div>
