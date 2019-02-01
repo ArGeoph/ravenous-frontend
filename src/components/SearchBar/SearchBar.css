@@ -55,7 +55,7 @@
   .SearchBar-fields form {
     display: flex;
     flex-wrap: wrap;
-    
+    justify-content:  center;    
   }
   
   .SearchBar-fields input {
