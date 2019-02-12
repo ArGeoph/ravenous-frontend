@@ -6,6 +6,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     height: 25rem;
+    box-shadow: -5px 5px 15px #181817;
   }
   
   .SearchBar-sort-options ul {
@@ -48,8 +49,8 @@
   }
 
   .SearchBar-fields input:focus {
-    box-shadow: -2px 2px 5px blue;
-    border: 3px solid blue;
+    box-shadow: -8px 8px 15px rgb(7, 7, 7);
+    border: 4px solid rgb(31, 31, 241);
   }
   
   .SearchBar-fields form {
@@ -95,7 +96,7 @@
     text-align: center;
     color: red;
     padding: 0 0;
-    font-size: 1.2em;
+    font-size: 1em;
     width: 300px;
     height: 30px;
     margin: 0 auto;
