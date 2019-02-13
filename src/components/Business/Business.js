@@ -24,8 +24,9 @@ export class Business extends React.Component {
                     <div className="Business-information">
                         <div className="Business-address">
                             <p>                                
-                                <a href={"https://www.google.com/maps/place/" + business.address + " " + business.city} target="_blank" rel="noopener noreferrer">{business.address}  </a>
-                                <FontAwesomeIcon icon="map-marker-alt" />
+                                <a href={"https://www.google.com/maps/place/" + business.address + " " + business.city} target="_blank" rel="noopener noreferrer">{business.address}  <FontAwesomeIcon icon="map-marker-alt" />   
+                                </a>
+
                             </p>
                             <p>{business.city}</p>
                             <p>{business.state} {business.zipCode}</p>
