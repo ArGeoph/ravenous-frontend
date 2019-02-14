@@ -6,7 +6,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     height: 25rem;
-    box-shadow: -5px 5px 15px #181817;
+    box-shadow: -8px 8px 15px #181817;
   }
   
   .SearchBar-sort-options ul {
@@ -33,7 +33,7 @@
   }
   
   .SearchBar-sort-options li:hover {
-    color: #d4cfcf;
+    color: #d8bebe;
   }
   
   .SearchBar-sort-options li.active,
