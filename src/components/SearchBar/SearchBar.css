@@ -60,7 +60,7 @@
   }
   
   .SearchBar-fields input {
-    width: 21rem;
+    width: 20rem;
     padding: .66rem 1rem;
     margin: 0px 2rem;
     border-radius: 6px;
@@ -112,6 +112,17 @@
       margin-left: 2rem;
       margin-right: 2rem;
     }
+
+    .SearchBar-sort-options li {
+      width: 1.8rem;
+      border-bottom: 1px solid #fff;
+      padding: 0 2.58rem .33rem 2.58rem;
+      line-height: 1.13;
+      font-weight: 600;
+      font-size: .93rem;
+      transition: color .5s;
+      list-style-type: none;
+    }
   
     .SearchBar-fields {
       flex-direction: column;
@@ -127,10 +138,17 @@
     .SearchBar-fields input {
       margin-right: 0;
       margin-bottom: .86rem;
+      width: 16rem;
+      padding: .66rem 1rem;
+      margin: 0px 2rem;
     }
     .inputFieldErrorMessage {
       color: red;
       padding: 0px 5px;
       font-size: .7em;
     }
+  }
+
+  @media only screen and (max-width: 480px) {
+
   }
