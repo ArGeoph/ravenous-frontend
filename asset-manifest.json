@@ -1,14 +1,14 @@
 {
-  "main.css": "/search-restaurants/static/css/main.4c72f8e2.chunk.css",
-  "main.js": "/search-restaurants/static/js/main.cc236e7e.chunk.js",
-  "main.js.map": "/search-restaurants/static/js/main.cc236e7e.chunk.js.map",
-  "static/js/1.0376bbf7.chunk.js": "/search-restaurants/static/js/1.0376bbf7.chunk.js",
-  "static/js/1.0376bbf7.chunk.js.map": "/search-restaurants/static/js/1.0376bbf7.chunk.js.map",
+  "main.css": "/search-restaurants/static/css/main.5534e52a.chunk.css",
+  "main.js": "/search-restaurants/static/js/main.3842837b.chunk.js",
+  "main.js.map": "/search-restaurants/static/js/main.3842837b.chunk.js.map",
+  "static/js/1.6511cae7.chunk.js": "/search-restaurants/static/js/1.6511cae7.chunk.js",
+  "static/js/1.6511cae7.chunk.js.map": "/search-restaurants/static/js/1.6511cae7.chunk.js.map",
   "runtime~main.js": "/search-restaurants/static/js/runtime~main.6e7d5b52.js",
   "runtime~main.js.map": "/search-restaurants/static/js/runtime~main.6e7d5b52.js.map",
-  "static/css/main.4c72f8e2.chunk.css.map": "/search-restaurants/static/css/main.4c72f8e2.chunk.css.map",
+  "static/css/main.5534e52a.chunk.css.map": "/search-restaurants/static/css/main.5534e52a.chunk.css.map",
   "static/media/SearchBar.css": "/search-restaurants/static/media/background_search_desktop.902df4c5.jpg",
   "index.html": "/search-restaurants/index.html",
-  "precache-manifest.ab53855f7fae27e51b2912f212d1de13.js": "/search-restaurants/precache-manifest.ab53855f7fae27e51b2912f212d1de13.js",
+  "precache-manifest.70810e6841bd93cc1582c8e8b2b50761.js": "/search-restaurants/precache-manifest.70810e6841bd93cc1582c8e8b2b50761.js",
   "service-worker.js": "/search-restaurants/service-worker.js"
 }
