@@ -136,7 +136,7 @@ export class SearchBar extends React.Component {
                         <div>
                             <div className="inputFieldErrorMessage">{this.state.termError && "The field cannot be empty"}</div>
                             <input onChange={this.handleTermChange}
-                                    placeholder="Search Businesses"
+                                    placeholder="Search Restaurants"
                                     className={this.state.termError && "inputFieldError"} 
                                     />
                         </div>

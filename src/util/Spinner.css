@@ -1,6 +1,9 @@
-.sweet-loading {
-    /* text-align: center; */
-    /* height: 500px;
-    padding: 250px 0;
-    margin: 250px auto; */
+.container {
+    display: flex;
+    height: 1000px;
+    justify-content: center;
+}
+.spinner {
+    display: flex;
+    justify-content: center;
 }

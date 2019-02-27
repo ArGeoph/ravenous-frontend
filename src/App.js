@@ -42,7 +42,7 @@ class App extends React.Component {
           this.setState({
             loading: false,
             businesses: [],
-            errorMessage: "Your search hasn't returned any results. Please check your input or the Internet connection"
+            errorMessage: "Your search hasn't returned any results. Please check your input or try later"
           })
         }
       }); 

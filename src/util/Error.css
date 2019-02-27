@@ -1,6 +1,13 @@
 .error {
-    margin: 15px auto;
+    display: flex;
+    margin: 5px 10px;
     color: red;
-    text-align: center;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
     font-size: 1.5em;
+}
+
+h3.error {
+    text-align: center;
 }
