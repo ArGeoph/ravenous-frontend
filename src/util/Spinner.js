@@ -1,7 +1,8 @@
 import React from 'react';
-import { css } from '@emotion/core';
 import { FadeLoader } from 'react-spinners';
 import './Spinner.css';
+
+// CSS for Spinner component
 const override = `
     display: flex;
     align-items: center;

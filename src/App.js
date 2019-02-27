@@ -48,9 +48,8 @@ class App extends React.Component {
       }); 
   }
 
-  //Function will be called from searchBar component to remove "Your search hasn't returned any results" error message
+  // Function will be called from searchBar component to remove "Your search hasn't returned any results" error message
   clearErrorMessageAndSearchResults() {
-
     this.setState({
       businesses: [],
       errorMessage: ""
@@ -58,7 +57,6 @@ class App extends React.Component {
   }
 
   render() {
-
     return (
       <div className="App">
         <h1>Ravenous</h1>

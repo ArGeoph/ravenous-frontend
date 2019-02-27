@@ -1,7 +1,7 @@
 {
   "homepage": "http://ArGeoph.github.io/search-restaurants",
   "name": "ravenous",
-  "version": "0.1.1",
+  "version": "0.1.5",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.12",
