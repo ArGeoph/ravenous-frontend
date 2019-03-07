@@ -1,4 +1,5 @@
 import React from 'react';
+import Autocomplete from './Autocomplete';
 import './SearchBar.css';
 
 // One of the object keys will be used to pass corresponding value to Yelp API to return results in accordance with user's choice
@@ -18,8 +19,10 @@ export class SearchBar extends React.Component {
             term : '',
             location: '',
             sortBy: 'best_match',
+            restaurantSuggestions: ['indian', 'chinese', 'russian', 'mexican'],
             termError: false,
-            locationError: false       
+            locationError: false,
+            enableAutocomplete: false       
         };   
         
         this.handleTermChange = this.handleTermChange.bind(this);
@@ -123,7 +126,6 @@ export class SearchBar extends React.Component {
 
     render() {
         return (
-
             <div className="SearchBar">
                 <div className="SearchBar-sort-options">
                     <ul>
@@ -138,14 +140,19 @@ export class SearchBar extends React.Component {
                             <input onChange={this.handleTermChange}
                                     placeholder="Search Restaurants"
                                     className={this.state.termError && "inputFieldError"} 
-                                    />
+                            />
+                            <Autocomplete 
+                                enableAutocomplete={this.state.enableAutocomplete}
+                                restaurantSuggestions={this.state.restaurantSuggestions} 
+                            />
                         </div>
 
                         <div>
                             <div className="inputFieldErrorMessage">{this.state.locationError && "The field cannot be empty"}</div>               
                             <input onChange={this.handleLocationChange}
                                     placeholder="Where?" 
-                                    className={this.state.locationError && "inputFieldError"} />    
+                                    className={this.state.locationError && "inputFieldError"} 
+                            />    
                         </div>                            
                     </form>
                 </div> 
