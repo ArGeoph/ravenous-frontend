@@ -15,19 +15,19 @@ export class SearchBar extends React.Component {
     constructor(props) {
         super(props);
 
+        // Searchbar state object
         this.state = {
             term : '',
             location: '',
             sortBy: 'best_match',
-            restaurantSuggestions: ['indian', 'chinese', 'russian', 'mexican'],
             termError: false,
-            locationError: false,
-            enableAutocomplete: false       
+            locationError: false 
         };   
         
         this.handleTermChange = this.handleTermChange.bind(this);
         this.handleLocationChange = this.handleLocationChange.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
+        this.setTermValue = this.setTermValue.bind(this);
     }
 
     // Function checking if the current search option is selected and returnig css class name active if it's the case
@@ -109,7 +109,14 @@ export class SearchBar extends React.Component {
             event.preventDefault(); 
         }
     }    
-//============================================================================
+
+    setTermValue(value) {
+        this.setState({
+            term: value
+        });
+    }
+// Event handlers end 
+// =======================================================================
 
     // Will return li elements containing search options for users
     renderSortByOptions() {
@@ -139,11 +146,12 @@ export class SearchBar extends React.Component {
                             <div className="inputFieldErrorMessage">{this.state.termError && "The field cannot be empty"}</div>
                             <input onChange={this.handleTermChange}
                                     placeholder="Search Restaurants"
+                                    value={this.state.term}
                                     className={this.state.termError && "inputFieldError"} 
                             />
                             <Autocomplete 
-                                enableAutocomplete={this.state.enableAutocomplete}
-                                restaurantSuggestions={this.state.restaurantSuggestions} 
+                                    userInput={this.state.term}
+                                    setTermValue={this.setTermValue}
                             />
                         </div>
 
