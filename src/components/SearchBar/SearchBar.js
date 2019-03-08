@@ -21,13 +21,15 @@ export class SearchBar extends React.Component {
             location: '',
             sortBy: 'best_match',
             termError: false,
-            locationError: false 
+            locationError: false,
+            termAutocompletionEnabled: false
         };   
         
         this.handleTermChange = this.handleTermChange.bind(this);
         this.handleLocationChange = this.handleLocationChange.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
         this.setTermValue = this.setTermValue.bind(this);
+        this.focusOnLocationField = this.focusOnLocationField.bind(this);
     }
 
     // Function checking if the current search option is selected and returnig css class name active if it's the case
@@ -46,8 +48,10 @@ export class SearchBar extends React.Component {
 
         this.setState({
             term: event.target.value,
-            termError: event.target.value.length > 0 && false
+            termError: event.target.value.length > 0 && false,
+            termAutocompletionEnabled: true
         });
+        event.preventDefault(); 
     }
 
     handleLocationChange(event) {
@@ -95,8 +99,8 @@ export class SearchBar extends React.Component {
                 });
             }
         
-            else {//if user has entered search request and location send GET request to the YELP API
-                //if both field aren't empty clear error flags
+            else {// if user has entered search request and location send GET request to the YELP API
+                // if both field aren't empty clear error flags
                 this.setState({
                     termError: false,
                     locationError: false,
@@ -113,11 +117,21 @@ export class SearchBar extends React.Component {
     setTermValue(value) {
         this.setState({
             term: value
+        });    
+        
+        this.refs.restaurantField.focus();
+    }
+
+    // Method will disable restaurants autocompletion if location input field gained focus
+    focusOnLocationField(event) {
+        this.setState({
+            termAutocompletionEnabled: false
         });
+
+        event.preventDefault(); 
     }
 // Event handlers end 
 // =======================================================================
-
     // Will return li elements containing search options for users
     renderSortByOptions() {
         return Object.keys(sortByOptions).map( sortByOption => {
@@ -143,23 +157,28 @@ export class SearchBar extends React.Component {
                 <div className="SearchBar-fields">
                     <form method="#" onKeyDown={this.handleSearch} autoComplete="on" >
                         <div>
-                            <div className="inputFieldErrorMessage">{this.state.termError && "The field cannot be empty"}</div>
+                            <div className="inputFieldErrorMessage">{this.state.termError ? "The field cannot be empty" : undefined}</div>
                             <input onChange={this.handleTermChange}
                                     placeholder="Search Restaurants"
                                     value={this.state.term}
-                                    className={this.state.termError && "inputFieldError"} 
+                                    className={this.state.termError ? "inputFieldError" : undefined}
+                                    ref='restaurantField' 
+                                    autoFocus
                             />
                             <Autocomplete 
                                     userInput={this.state.term}
                                     setTermValue={this.setTermValue}
+                                    suggestionsEnabled={this.state.termAutocompletionEnabled}
+                                    location={this.state.location}
                             />
                         </div>
 
                         <div>
-                            <div className="inputFieldErrorMessage">{this.state.locationError && "The field cannot be empty"}</div>               
+                            <div className="inputFieldErrorMessage">{this.state.locationError ? "The field cannot be empty" : undefined}</div>               
                             <input onChange={this.handleLocationChange}
+                                    onFocus={this.focusOnLocationField}
                                     placeholder="Where?" 
-                                    className={this.state.locationError && "inputFieldError"} 
+                                    className={this.state.locationError ? "inputFieldError" : undefined} 
                             />    
                         </div>                            
                     </form>

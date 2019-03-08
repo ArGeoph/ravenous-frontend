@@ -1,4 +1,5 @@
 import React from 'react';
+import getSuggestions from '../../util/GetAutocompleteSuggestions';
 import './Autocomplete.css';
 
 class Autocomplete extends React.Component {
@@ -6,33 +7,54 @@ class Autocomplete extends React.Component {
         super(props);
 
         this.state = {
-            suggestionsEnabled: true,
-            restaurantSuggestions: ['indian', 'chinese', 'russian', 'mexican', 'american', 'cuban'],
+            suggestionsEnabled: this.props.suggestionsEnabled,
+            suggestions: [],
             filteredSuggestions: []
         }
 
         this.handleClick = this.handleClick.bind(this);
     }
+    
+    // Create suggestion list from response from Yelp API, before autocomplete component is rendered
+    componentWillMount() {
+        
+        getSuggestions(this.props).then((suggestions) => {
+            this.setState({
+                suggestions: suggestions
+            });
 
-    // Filter suggestions if user input changed
-    componentWillReceiveProps() {
-        let afilteredSuggestions;
-
-        afilteredSuggestions = this.state.restaurantSuggestions.filter((suggestion) => {
-            return suggestion !== this.props.userInput && suggestion.indexOf(this.props.userInput) !== -1 ;
+            console.log(suggestions);
         });
+    }
 
+    // Filter suggestions if user input changed and prop is sent to the Autocomplete component
+    componentWillReceiveProps(props) {
+        let filteredSuggestions;
+
+        // If autocompletion disabled or user already typed the whole word from autosuggestion list or the user input is blank
+        if(props.suggestionsEnabled === false || this.state.filteredSuggestions.includes(props.userInput) || props.userInput === "") {
+            this.setState({
+                suggestionsEnabled: false
+            });
+            return null;
+        }
+
+        // If all abovementioned conditions aren't met, create
+        filteredSuggestions = this.state.suggestions.filter((suggestion) => {
+            return suggestion.toLowerCase().startsWith(props.userInput.toLowerCase());
+        });
+        
         this.setState({
-            filteredSuggestions: afilteredSuggestions,
+            filteredSuggestions: filteredSuggestions,
             suggestionsEnabled: true
         });
     }
 
     // Handle click
     handleClick(event) {
-        console.log(event.target);
-        this.props.setTermValue(event.target.innerHTML);
-
+        this.props.setTermValue(event.currentTarget.innerHTML);
+        
+        //Close all suggestions if user selected one
         this.setState({
             suggestionsEnabled: false
         });
@@ -42,7 +64,7 @@ class Autocomplete extends React.Component {
         let output;
 
         // Check if there is any suggestions available
-        if (this.props.userInput && this.state.suggestionsEnabled) {
+        if (this.state.suggestionsEnabled) {
             output = (
                 <ul className="suggestions">
                     {this.state.filteredSuggestions.map(element => {
@@ -56,7 +78,7 @@ class Autocomplete extends React.Component {
                 </ul>
             );
         }
-        else {
+        else { //If there's no any suggestions, we will return nothing, i.e. null
             output = null;
         }
 

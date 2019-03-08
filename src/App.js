@@ -5,8 +5,6 @@ import { SearchBar } from './components/SearchBar/SearchBar.js';
 import { Yelp } from './util/Yelp';
 import { Spinner } from './util/Spinner';
 import { Error } from './util/Error';
-import { faTruckMonster } from '@fortawesome/free-solid-svg-icons';
-
 
 class App extends React.Component {
   constructor(props) {
@@ -26,7 +24,7 @@ class App extends React.Component {
       // Set loading state to true, so spinner will be active until request to Yelp API is fulfilled
       this.setState({
         businesses: [],
-        loading: faTruckMonster
+        loading: true
       });
 
       // Send request to Yelp API

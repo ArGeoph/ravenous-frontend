@@ -7,18 +7,19 @@
 .suggestionItem {
     background-color: white;
     width: 20rem;
-    padding: .66rem 1rem;
+    padding: .56rem 1rem;
     margin: 0px 0rem;
-    border-bottom: 1px solid black;  
+    border-bottom: 2px solid black;  
     border-radius: 6px;   
 }
 
 .suggestionItem:hover {
-    background-color: rgb(230, 220, 220);
+    background-color: rgb(250, 245, 219);
 }
 
 @media only screen and (max-width: 890px) {
     .suggestionItem {
         width: 16rem;
+        text-align: left;
     }
 }
