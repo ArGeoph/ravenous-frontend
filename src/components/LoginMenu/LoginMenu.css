@@ -7,7 +7,7 @@
     margin: .15rem .3rem;
     padding: 0 0;
     width: 148px;
-    height: 2.7rem;
+    height: 2.3rem;
     color: white;
     font-size: 1rem;
     position: absolute;
@@ -34,9 +34,17 @@
 }
 .Login-Menu {
     position: absolute; 
+    margin: 0 0;
+    top: 44px;
 }
 
 .hidden {
     visibility: hidden;
+}
+
+@media only screen and (max-width: 560px) {
+    .Login-Menu {
+        top: 34px;
+    }
 }
 

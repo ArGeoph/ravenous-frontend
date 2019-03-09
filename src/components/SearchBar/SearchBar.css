@@ -5,7 +5,7 @@
     background-image: url('./background_search_desktop.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    height: 23rem;
+    height: 22rem;
     box-shadow: -8px 8px 15px #000000;
   }
   
@@ -13,7 +13,7 @@
     display: flex;
     justify-content: center;
     text-align: center;
-    margin-bottom: 2.22rem;
+    margin-bottom: 1.8rem;
     color: #ffffff;
     padding: 0 0;
   }
@@ -111,12 +111,13 @@
     }
   
     .SearchBar-sort-options ul {
-      margin-left: 2rem;
-      margin-right: 2rem;
+      margin-left: 1.6rem;
+      margin-right: 1.6rem;
+      margin-bottom: 0.2rem;
     }
 
     .SearchBar-sort-options li {
-      width: 1.8rem;
+      width: 1.5rem;
       border-bottom: 1px solid #fff;
       padding: 0 2.58rem .33rem 2.58rem;
       line-height: 1.13;

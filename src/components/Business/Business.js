@@ -3,7 +3,9 @@ import './Business.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
-import { faPhone } from '@fortawesome/free-solid-svg-icons'
+import { faPhone } from '@fortawesome/free-solid-svg-icons';
+// import { faFacebook } from '@fortawesome/free-solid-svg-icons';
+// import { faPinterestF } from '@fortawesome/free-solid-svg-icons';
 
 library.add(faMapMarkerAlt, faPhone);
 
@@ -17,7 +19,7 @@ export class Business extends React.Component {
                 <div className="image-container">
                     <img 
                         src={business.imageSrc} 
-                        alt=""
+                        alt=""                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
                     />    
 
                     <h2>{business.name}</h2>  
@@ -45,6 +47,7 @@ export class Business extends React.Component {
                         </div>
                     </div>   
                     <a href={business.url} target="_blank" rel="noopener noreferrer">Open restaurant's page</a>
+                    <div></div>
                 </div>           
             </div>
         );

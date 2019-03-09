@@ -1,7 +1,12 @@
 import React from 'react';
-import './SignInButton.css';
+import './LoginMenu.css';
 import { FacebookLoginButton, GoogleLoginButton, TwitterLoginButton } from 'react-social-login-buttons';
 
+// Buttons style properties
+const style = {
+    height: '2.3rem',
+    margin: '.1rem .3rem'
+}
 
 class SignInButton extends React.Component{
 
@@ -22,20 +27,20 @@ class SignInButton extends React.Component{
 
     render() {
         return (
-            <div className="Login">
-                <button 
-                    onClick={this.toggleButton}
-                    className={this.state.showMenu ? 'Button-Active' : ''}>
+            <div className="Login"
+                onMouseEnter={this.toggleButton}  
+                onMouseLeave={this.toggleButton}>
+                <button className={this.state.showMenu ? 'Button-Active' : ''}>
                     Log In
                 </button>
                 <div className={!this.state.showMenu ? 'Login-Menu hidden' : 'Login-Menu'}>
-                    <FacebookLoginButton>
+                    <FacebookLoginButton style={style}>
                         <span>Facebook</span> 
                     </FacebookLoginButton>
-                    <GoogleLoginButton>
+                    <GoogleLoginButton style={style}>
                         <span>Google</span> 
                     </GoogleLoginButton>
-                    <TwitterLoginButton>
+                    <TwitterLoginButton style={style}>
                         <span>Twitter</span> 
                     </TwitterLoginButton>
                 </div>    
