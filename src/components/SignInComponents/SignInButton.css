@@ -1,0 +1,42 @@
+.Login {
+    display: flex;
+    justify-content: right;
+}
+
+.Login button {
+    margin: .15rem .3rem;
+    padding: 0 0;
+    width: 148px;
+    height: 2.7rem;
+    color: white;
+    font-size: 1rem;
+    position: absolute;
+    top: 0;
+    font-weight: 500;
+    border-radius: 4px;
+    background-color: transparent;
+    transition-duration: .4s;
+    border: none;
+}
+
+.Login button:hover {
+    background-color: rgb(106, 202, 97);
+    color: white;
+    font-weight: 800;
+    font-size: 1.05rem;
+}
+
+.Button-Active {
+    background-color: rgb(11, 51, 7);
+    color: white;
+    font-weight: 800;
+    font-size: 1.05rem;
+}
+.Login-Menu {
+    position: absolute; 
+}
+
+.hidden {
+    visibility: hidden;
+}
+

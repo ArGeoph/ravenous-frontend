@@ -33,6 +33,8 @@ input:focus {
 }
 
 h1 {
+  display: flex;
+  justify-content: center;
   padding: .4rem 0;
   text-align: center;
   background-color: #dbab4b;

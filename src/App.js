@@ -5,6 +5,7 @@ import { SearchBar } from './components/SearchBar/SearchBar.js';
 import { Yelp } from './util/Yelp';
 import { Spinner } from './util/Spinner';
 import { Error } from './util/Error';
+import SignInButton from './components/SignInComponents/SignInButton';
 
 class App extends React.Component {
   constructor(props) {
@@ -58,6 +59,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <h1>Ravenous</h1>
+        <SignInButton/>
         <SearchBar searchYelp = {this.searchYelp} clearErrorMessageAndSearchResults = {this.clearErrorMessageAndSearchResults} />
         <Spinner loading={this.state.loading} />
         <BusinessList businesses = {this.state.businesses} />

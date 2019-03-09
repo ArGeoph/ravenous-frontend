@@ -12,10 +12,9 @@ const getSuggestions = async (location) => {
             'Authorization' : `Bearer ${apiKey}`
         }});
 
-        console.log(response);
         if (response.ok) {
             const jsonResponse = await response.json();
-            console.log(jsonResponse);
+
 
             return defaultAutocomplete.concat(
                 jsonResponse.categories.map(catObject => catObject.alias),
