@@ -23,7 +23,6 @@ class Autocomplete extends React.Component {
                 suggestions: suggestions
             });
 
-            console.log(suggestions);
         });
     }
 
@@ -39,7 +38,7 @@ class Autocomplete extends React.Component {
             return null;
         }
 
-        // If all abovementioned conditions aren't met, create
+        // If all abovementioned conditions aren't met, and everything is good create array with suggestions based on user input
         filteredSuggestions = this.state.suggestions.filter((suggestion) => {
             return suggestion.toLowerCase().startsWith(props.userInput.toLowerCase());
         });
