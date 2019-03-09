@@ -12,19 +12,19 @@ self.__precacheManifest = [
     "url": "/search-restaurants/static/js/runtime~main.6e7d5b52.js"
   },
   {
-    "revision": "21a3d0f07d303caeedea",
-    "url": "/search-restaurants/static/js/main.21a3d0f0.chunk.js"
+    "revision": "34f1cd6a0ef72638a6b9",
+    "url": "/search-restaurants/static/js/main.34f1cd6a.chunk.js"
   },
   {
-    "revision": "78fc62f607f5130d34d1",
-    "url": "/search-restaurants/static/js/1.78fc62f6.chunk.js"
+    "revision": "57c1ddaebddf93931a85",
+    "url": "/search-restaurants/static/js/1.57c1ddae.chunk.js"
   },
   {
-    "revision": "21a3d0f07d303caeedea",
-    "url": "/search-restaurants/static/css/main.09d4bfc6.chunk.css"
+    "revision": "34f1cd6a0ef72638a6b9",
+    "url": "/search-restaurants/static/css/main.76a9c043.chunk.css"
   },
   {
-    "revision": "1d5428a4432454b641583dbc2ce762f9",
+    "revision": "458b8be634d7a6b2b6f0dd8661de478e",
     "url": "/search-restaurants/index.html"
   }
 ];
