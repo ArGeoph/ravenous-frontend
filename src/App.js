@@ -5,7 +5,7 @@ import { SearchBar } from './components/SearchBar/SearchBar.js';
 import { Yelp } from './util/Yelp';
 import { Spinner } from './util/Spinner';
 import { Error } from './util/Error';
-import LoginMenu from './components/LoginMenu/LoginMenu';
+import  LoginMenu from './components/LoginMenu/LoginMenu';
 
 class App extends React.Component {
   constructor(props) {
