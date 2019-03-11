@@ -58,8 +58,14 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <h1>Ravenous</h1>
-        <LoginMenu />
+        <nav class="NavMenu">
+          <div class="Logo">
+            <h1>Ravenous</h1>
+          </div>
+          <div class="LoginMenu">
+            <LoginMenu />
+          </div>
+        </nav>        
         <SearchBar searchYelp = {this.searchYelp} clearErrorMessageAndSearchResults = {this.clearErrorMessageAndSearchResults} />
         <Spinner loading={this.state.loading} />
         <BusinessList businesses = {this.state.businesses} />

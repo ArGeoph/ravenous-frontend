@@ -1,12 +1,14 @@
 .Login {
     display: flex;
     justify-content: right;
+    width: 150px;
+    margin: 0 .1rem;
 }
 
 .Login button {
-    margin: .15rem .3rem;
+    margin: .1rem .3rem;
     padding: 0 0;
-    width: 148px;
+    width: 8.2rem;
     height: 2.3rem;
     color: white;
     font-size: 1rem;
@@ -46,6 +48,17 @@
 }
 
 @media only screen and (max-width: 560px) {
+    .Login {
+        display: flex;
+        justify-content: right;
+        width: 140px;
+        margin: 0 0;
+    }
+
+    .Login button {
+        width: 10.5rem;
+    }
+
     .Login-Menu {
         top: 34px;
     }
