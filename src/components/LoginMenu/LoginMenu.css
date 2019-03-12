@@ -8,7 +8,7 @@
 .Login button {
     margin: .1rem .3rem;
     padding: 0 0;
-    width: 8.2rem;
+    width: 8.05rem;
     height: 2.3rem;
     color: white;
     font-size: 1rem;
@@ -61,6 +61,7 @@
 
     .Login-Menu {
         top: 34px;
+        margin: 0 0;
     }
 }
 
