@@ -44,6 +44,7 @@ export class SearchBar extends React.Component {
 
 //============================================================================    
 // Event handlers
+
     handleTermChange(event) {
 
         this.setState({
@@ -76,6 +77,7 @@ export class SearchBar extends React.Component {
     handleSearch(event) {
 
         if (event.type === "click" || event.keyCode === 13) {
+
             // Call clearErrorMessageAndSearchResults function located in App.js to clear possible error message and previous search results
             this.props.clearErrorMessageAndSearchResults();
 
@@ -117,12 +119,14 @@ export class SearchBar extends React.Component {
     setTermValue(value) {
         this.setState({
             term: value
-        });    
+        });
         
-        this.refs.restaurantField.focus();
+        //Set focus on location field when user chose one of the options from autocomplete list
+        this.refs.locationField.focus();
     }
 
     // Method will disable restaurants autocompletion if location input field gained focus
+
     focusOnLocationField(event) {
         this.setState({
             termAutocompletionEnabled: false
@@ -130,8 +134,10 @@ export class SearchBar extends React.Component {
 
         event.preventDefault(); 
     }
+
 // Event handlers end 
 // =======================================================================
+
     // Will return li elements containing search options for users
     renderSortByOptions() {
         return Object.keys(sortByOptions).map( sortByOption => {
@@ -139,12 +145,13 @@ export class SearchBar extends React.Component {
 
             return <li className={this.getSortByClass(sortByOptionValue)} 
                         key={sortByOptionValue}
-                        onClick={this.handleSortByChange.bind(this, sortByOptionValue)}>
+                        onClick={this.handleSortByChange.bind(this, sortByOptionValue)} >
                             {sortByOption}
                     </li>
         });
     }
 
+    // Render all content
     render() {
         return (
             <div className="SearchBar">
@@ -163,6 +170,8 @@ export class SearchBar extends React.Component {
                                     value={this.state.term}
                                     className={this.state.termError ? "inputFieldError" : undefined}
                                     ref='restaurantField' 
+                                    id='restaurantField'
+                                    autoComplete='off'
                                     autoFocus
                             />
                             <Autocomplete 
@@ -179,6 +188,9 @@ export class SearchBar extends React.Component {
                                     onFocus={this.focusOnLocationField}
                                     placeholder="Where?" 
                                     className={this.state.locationError ? "inputFieldError" : undefined} 
+                                    ref='locationField'
+                                    id='locationField'
+                                    autoComplete='off'
                             />    
                         </div>                            
                     </form>

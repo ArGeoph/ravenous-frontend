@@ -5,7 +5,7 @@ import { SearchBar } from './components/SearchBar/SearchBar.js';
 import { Yelp } from './util/Yelp';
 import { Spinner } from './util/Spinner';
 import { Error } from './util/Error';
-import  LoginMenu from './components/LoginMenu/LoginMenu';
+import { LoginMenu } from './components/LoginMenu/LoginMenu';
 
 class App extends React.Component {
   constructor(props) {
@@ -58,11 +58,11 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <nav class="NavMenu">
-          <div class="Logo">
+        <nav className="NavMenu">
+          <div className="Logo">
             <h1>Ravenous</h1>
           </div>
-          <div class="LoginMenu">
+          <div className="LoginMenu">
             <LoginMenu />
           </div>
         </nav>        

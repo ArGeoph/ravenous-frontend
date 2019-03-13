@@ -8,7 +8,7 @@ const style = {
     margin: '.1rem .3rem'
 }
 
-class SignInButton extends React.Component{
+export class LoginMenu extends React.Component{
 
     constructor(props) {
         super(props);
@@ -16,7 +16,7 @@ class SignInButton extends React.Component{
         this.state = {
             showMenu: false
         }
-        this.toggleButton = this.toggleButton.bind(this);
+        this.toggleButton = this.toggleButton.bind(this);             
     }
 
     toggleButton() {
@@ -48,5 +48,3 @@ class SignInButton extends React.Component{
         )
     }
 } 
-
-export default SignInButton;
