@@ -30,9 +30,11 @@ export class LoginMenu extends React.Component{
             <div className="Login"
                 onMouseEnter={this.toggleButton}  
                 onMouseLeave={this.toggleButton}>
+
                 <button className={this.state.showMenu ? 'Button-Active' : ''}>
                     Log In With
                 </button>
+                
                 <div className={!this.state.showMenu ? 'Login-Menu hidden' : 'Login-Menu'}>
                     <FacebookLoginButton style={style}>
                         <span>Facebook</span> 
