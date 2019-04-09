@@ -24,7 +24,7 @@ self.__precacheManifest = [
     "url": "/search-restaurants/static/css/main.51037b3a.chunk.css"
   },
   {
-    "revision": "e1a679ac0a6a559da4a7c0255ebb79fd",
+    "revision": "02cfebb3ebeaddab7299fe42dea0c7e0",
     "url": "/search-restaurants/index.html"
   }
 ];

@@ -7,8 +7,8 @@
   "runtime~main.js": "/search-restaurants/static/js/runtime~main.6e7d5b52.js",
   "runtime~main.js.map": "/search-restaurants/static/js/runtime~main.6e7d5b52.js.map",
   "static/css/main.51037b3a.chunk.css.map": "/search-restaurants/static/css/main.51037b3a.chunk.css.map",
-  "static/media/SearchBar.css": "/search-restaurants/static/media/background_search_mobile.5d0905e6.jpg",
+  "static/media/SearchBar.css": "/search-restaurants/static/media/background_search_desktop.902df4c5.jpg",
   "index.html": "/search-restaurants/index.html",
-  "precache-manifest.3046c592eb5624f9b0d384ffc5a1b43f.js": "/search-restaurants/precache-manifest.3046c592eb5624f9b0d384ffc5a1b43f.js",
+  "precache-manifest.57cb8fc63a601085a6e90d78503cb532.js": "/search-restaurants/precache-manifest.57cb8fc63a601085a6e90d78503cb532.js",
   "service-worker.js": "/search-restaurants/service-worker.js"
 }
