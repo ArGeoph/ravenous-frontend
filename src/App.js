@@ -2,9 +2,9 @@ import React from 'react';
 import './App.css';
 import { BusinessList } from './components/BusinessList/BusinessList.js';
 import { SearchBar } from './components/SearchBar/SearchBar.js';
-import { Yelp } from './util/Yelp';
-import { Spinner } from './util/Spinner';
-import { Error } from './util/Error';
+import { Yelp } from './utils/Yelp';
+import { Spinner } from './utils/Spinner';
+import { Error } from './utils/Error';
 import { LoginMenu } from './components/LoginMenu/LoginMenu';
 
 /**

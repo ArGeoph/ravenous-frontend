@@ -1,5 +1,5 @@
 import React from 'react';
-import getSuggestions from '../../util/GetAutocompleteSuggestions';
+import getSuggestions from '../../utils/GetAutocompleteSuggestions';
 import './Autocomplete.css';
 
 class Autocomplete extends React.Component {
@@ -14,10 +14,10 @@ class Autocomplete extends React.Component {
 
         this.handleClick = this.handleClick.bind(this);
     }
-    
+
     // Create suggestion list from response from Yelp API, before autocomplete component is rendered
     componentWillMount() {
-        
+
         getSuggestions(this.props).then((suggestions) => {
             this.setState({
                 suggestions: suggestions
@@ -42,7 +42,7 @@ class Autocomplete extends React.Component {
         filteredSuggestions = this.state.suggestions.filter((suggestion) => {
             return suggestion.toLowerCase().startsWith(props.userInput.toLowerCase());
         });
-        
+
         this.setState({
             filteredSuggestions: filteredSuggestions,
             suggestionsEnabled: true
@@ -52,7 +52,7 @@ class Autocomplete extends React.Component {
     // Handle click
     handleClick(event) {
         this.props.setTermValue(event.currentTarget.innerHTML);
-        
+
         //Close all suggestions if user selected one
         this.setState({
             suggestionsEnabled: false
