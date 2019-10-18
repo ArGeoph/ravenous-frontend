@@ -13,4 +13,5 @@ export class BusinessList extends React.Component {
             </div>
         );
     }
-}
+} // End of Class
+// End of file

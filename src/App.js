@@ -74,6 +74,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+        {/*Navigation Menu*/}
         <nav className="NavMenu">
           <div className="Logo">
             <h1>Ravenous</h1>
@@ -82,11 +83,13 @@ class App extends React.Component {
             <LoginMenu />
           </div>
         </nav>
+        {/*Search Bar*/}
         <SearchBar
             searchYelp = {this.searchYelp}
             clearErrorMessageAndSearchResults = {this.clearErrorMessageAndSearchResults}
         />
         <Spinner loading={this.state.loading} />
+        {/*Search Results*/}
         <BusinessList businesses = {this.state.businesses} />
         <Error errorMessage = {this.state.errorMessage} />
       </div>
