@@ -7,10 +7,14 @@ import { Spinner } from './util/Spinner';
 import { Error } from './util/Error';
 import { LoginMenu } from './components/LoginMenu/LoginMenu';
 
+/**
+ * Main App Class
+ */
 class App extends React.Component {
   constructor(props) {
     super(props);
 
+    // Initialize state
     this.state = {
       businesses: [],
       loading: false,
@@ -19,8 +23,14 @@ class App extends React.Component {
 
     this.searchYelp = this.searchYelp.bind(this);
     this.clearErrorMessageAndSearchResults = this.clearErrorMessageAndSearchResults.bind(this);
-  } 
+  } // End of Constructor
 
+  /**
+   *
+   * @param term
+   * @param location
+   * @param sortBy
+   */
   searchYelp(term, location, sortBy) {
       // Set loading state to true, so spinner will be active until request to Yelp API is fulfilled
       this.setState({
@@ -44,10 +54,12 @@ class App extends React.Component {
             errorMessage: "Your search hasn't returned any results. Please check your input or Internet connection"
           })
         }
-      }); 
-  }
+      });
+  } // End of SearchYelp
 
-  // Function will be called from searchBar component to remove "Your search hasn't returned any results" error message
+  /** Clear error message and list of businesses
+   *
+   */
   clearErrorMessageAndSearchResults() {
     this.setState({
       businesses: [],
@@ -55,6 +67,10 @@ class App extends React.Component {
     });
   }
 
+  /**
+   * Main Render method
+   * @returns {*}
+   */
   render() {
     return (
       <div className="App">
@@ -65,14 +81,18 @@ class App extends React.Component {
           <div className="LoginMenu">
             <LoginMenu />
           </div>
-        </nav>        
-        <SearchBar searchYelp = {this.searchYelp} clearErrorMessageAndSearchResults = {this.clearErrorMessageAndSearchResults} />
+        </nav>
+        <SearchBar
+            searchYelp = {this.searchYelp}
+            clearErrorMessageAndSearchResults = {this.clearErrorMessageAndSearchResults}
+        />
         <Spinner loading={this.state.loading} />
         <BusinessList businesses = {this.state.businesses} />
         <Error errorMessage = {this.state.errorMessage} />
       </div>
     );
-  }
-}
+  } // End of Main Render method
+} // End of App class
 
 export default App;
+// End of file

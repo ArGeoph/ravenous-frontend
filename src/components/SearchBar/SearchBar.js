@@ -9,13 +9,15 @@ const sortByOptions = {
     'Most Reviewed' : "review_count"
 };
 
-// React component Seach bar class
+/**
+ * Renders Search Bar
+ */
 export class SearchBar extends React.Component {
 
     constructor(props) {
         super(props);
 
-        // Searchbar state object
+        // Initialize component's state
         this.state = {
             term : '',
             location: '',
@@ -23,8 +25,8 @@ export class SearchBar extends React.Component {
             termError: false,
             locationError: false,
             termAutocompletionEnabled: false
-        };   
-        
+        };
+
         this.handleTermChange = this.handleTermChange.bind(this);
         this.handleLocationChange = this.handleLocationChange.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
@@ -42,7 +44,7 @@ export class SearchBar extends React.Component {
         }
     }
 
-//============================================================================    
+//============================================================================
 // Event handlers
 
     handleTermChange(event) {
@@ -52,11 +54,11 @@ export class SearchBar extends React.Component {
             termError: event.target.value.length > 0 && false,
             termAutocompletionEnabled: true
         });
-        event.preventDefault(); 
+        event.preventDefault();
     }
 
     handleLocationChange(event) {
-        
+
         this.setState({
             location: event.target.value,
             locationError: event.target.value.length > 0 && false
@@ -100,7 +102,7 @@ export class SearchBar extends React.Component {
                     locationError: true
                 });
             }
-        
+
             else {// if user has entered search request and location send GET request to the YELP API
                 // if both field aren't empty clear error flags
                 this.setState({
@@ -112,15 +114,15 @@ export class SearchBar extends React.Component {
                 this.props.searchYelp(this.state.term, this.state.location, this.state.sortBy);
             }
 
-            event.preventDefault(); 
+            event.preventDefault();
         }
-    }    
+    }
 
     setTermValue(value) {
         this.setState({
             term: value
         });
-        
+
         //Set focus on location field when user chose one of the options from autocomplete list
         this.refs.locationField.focus();
     }
@@ -132,10 +134,10 @@ export class SearchBar extends React.Component {
             termAutocompletionEnabled: false
         });
 
-        event.preventDefault(); 
+        event.preventDefault();
     }
 
-// Event handlers end 
+// Event handlers end
 // =======================================================================
 
     // Will return li elements containing search options for users
@@ -143,7 +145,7 @@ export class SearchBar extends React.Component {
         return Object.keys(sortByOptions).map( sortByOption => {
             let sortByOptionValue = sortByOptions[sortByOption];
 
-            return <li className={this.getSortByClass(sortByOptionValue)} 
+            return <li className={this.getSortByClass(sortByOptionValue)}
                         key={sortByOptionValue}
                         onClick={this.handleSortByChange.bind(this, sortByOptionValue)} >
                             {sortByOption}
@@ -169,12 +171,12 @@ export class SearchBar extends React.Component {
                                     placeholder="Search Restaurants"
                                     value={this.state.term}
                                     className={this.state.termError ? "inputFieldError" : undefined}
-                                    ref='restaurantField' 
+                                    ref='restaurantField'
                                     id='restaurantField'
                                     autoComplete='off'
                                     autoFocus
                             />
-                            <Autocomplete 
+                            <Autocomplete
                                     userInput={this.state.term}
                                     setTermValue={this.setTermValue}
                                     suggestionsEnabled={this.state.termAutocompletionEnabled}
@@ -183,23 +185,24 @@ export class SearchBar extends React.Component {
                         </div>
 
                         <div>
-                            <div className="inputFieldErrorMessage">{this.state.locationError ? "The field cannot be empty" : undefined}</div>               
+                            <div className="inputFieldErrorMessage">{this.state.locationError ? "The field cannot be empty" : undefined}</div>
                             <input onChange={this.handleLocationChange}
                                     onFocus={this.focusOnLocationField}
-                                    placeholder="Where?" 
-                                    className={this.state.locationError ? "inputFieldError" : undefined} 
+                                    placeholder="Where?"
+                                    className={this.state.locationError ? "inputFieldError" : undefined}
                                     ref='locationField'
                                     id='locationField'
                                     autoComplete='off'
-                            />    
-                        </div>                            
+                            />
+                        </div>
                     </form>
-                </div> 
+                </div>
 
                 <div className="SearchBar-submit">
-                    <button onClick={this.handleSearch}>Let's Go</button>
+                    <button onClick={this.handleSearch}>Search</button>
                 </div>
             </div>
         );
     }
-}
+} // End of class
+// End of file
