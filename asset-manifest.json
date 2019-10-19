@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/search-restaurants/static/css/main.a296598e.chunk.css",
-    "main.js": "/search-restaurants/static/js/main.1e1bf0d8.chunk.js",
-    "main.js.map": "/search-restaurants/static/js/main.1e1bf0d8.chunk.js.map",
+    "main.css": "/search-restaurants/static/css/main.388707eb.chunk.css",
+    "main.js": "/search-restaurants/static/js/main.ec037bf9.chunk.js",
+    "main.js.map": "/search-restaurants/static/js/main.ec037bf9.chunk.js.map",
     "runtime-main.js": "/search-restaurants/static/js/runtime-main.7ce1454f.js",
     "runtime-main.js.map": "/search-restaurants/static/js/runtime-main.7ce1454f.js.map",
-    "static/js/2.24ef3863.chunk.js": "/search-restaurants/static/js/2.24ef3863.chunk.js",
-    "static/js/2.24ef3863.chunk.js.map": "/search-restaurants/static/js/2.24ef3863.chunk.js.map",
+    "static/js/2.306261b0.chunk.js": "/search-restaurants/static/js/2.306261b0.chunk.js",
+    "static/js/2.306261b0.chunk.js.map": "/search-restaurants/static/js/2.306261b0.chunk.js.map",
     "index.html": "/search-restaurants/index.html",
-    "precache-manifest.509385f6ffeebc7635c9ced175e4ecc2.js": "/search-restaurants/precache-manifest.509385f6ffeebc7635c9ced175e4ecc2.js",
+    "precache-manifest.62f1e64eb7e70ab66d9cbc8b96b19411.js": "/search-restaurants/precache-manifest.62f1e64eb7e70ab66d9cbc8b96b19411.js",
     "service-worker.js": "/search-restaurants/service-worker.js",
-    "static/css/main.a296598e.chunk.css.map": "/search-restaurants/static/css/main.a296598e.chunk.css.map",
+    "static/css/main.388707eb.chunk.css.map": "/search-restaurants/static/css/main.388707eb.chunk.css.map",
     "static/media/SearchBar.css": "/search-restaurants/static/media/background_search_mobile.5d0905e6.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.7ce1454f.js",
-    "static/js/2.24ef3863.chunk.js",
-    "static/css/main.a296598e.chunk.css",
-    "static/js/main.1e1bf0d8.chunk.js"
+    "static/js/2.306261b0.chunk.js",
+    "static/css/main.388707eb.chunk.css",
+    "static/js/main.ec037bf9.chunk.js"
   ]
 }
