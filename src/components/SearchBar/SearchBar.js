@@ -10,7 +10,7 @@ const sortByOptions = {
 };
 
 /**
- * Renders Search Bar
+ * Renders Search BarBusinessList
  */
 export class SearchBar extends React.Component {
 
@@ -34,7 +34,7 @@ export class SearchBar extends React.Component {
         this.focusOnLocationField = this.focusOnLocationField.bind(this);
     }
 
-    // Function checking if the current search option is selected and returnig css class name active if it's the case
+    // Function checking if the current search option is selected and returning css class name active if it's the case
     getSortByClass (sortByOption) {
         if (sortByOption === this.state.sortBy) {
             return 'active';
@@ -153,7 +153,10 @@ export class SearchBar extends React.Component {
         });
     }
 
-    // Render all content
+    /**
+     *  Main Render method
+     * @returns {*}
+     */
     render() {
         return (
             <div className="SearchBar">
@@ -204,5 +207,5 @@ export class SearchBar extends React.Component {
             </div>
         );
     }
-} // End of class
+}// End of class
 // End of file

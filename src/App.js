@@ -3,8 +3,8 @@ import './App.css';
 import { BusinessList } from './components/BusinessList/BusinessList.js';
 import { SearchBar } from './components/SearchBar/SearchBar.js';
 import { Yelp } from './utils/Yelp';
-import { Spinner } from './utils/Spinner';
-import { Error } from './utils/Error';
+import { Spinner } from './components/Spinner/Spinner';
+import { ErrorMessage } from './components/ErrorMessage/ErrorMessage';
 import { LoginMenu } from './components/LoginMenu/LoginMenu';
 
 /**
@@ -20,9 +20,6 @@ class App extends React.Component {
       loading: false,
       errorMessage: ""
     };
-
-    this.searchYelp = this.searchYelp.bind(this);
-    this.clearErrorMessageAndSearchResults = this.clearErrorMessageAndSearchResults.bind(this);
   } // End of Constructor
 
   /**
@@ -31,7 +28,7 @@ class App extends React.Component {
    * @param location
    * @param sortBy
    */
-  searchYelp(term, location, sortBy) {
+  searchYelp = (term, location, sortBy) => {
       // Set loading state to true, so spinner will be active until request to Yelp API is fulfilled
       this.setState({
         businesses: [],
@@ -55,17 +52,17 @@ class App extends React.Component {
           })
         }
       });
-  } // End of SearchYelp
+  };// End of SearchYelp method
 
   /** Clear error message and list of businesses
    *
    */
-  clearErrorMessageAndSearchResults() {
+  clearErrorMessageAndSearchResults = () => {
     this.setState({
       businesses: [],
       errorMessage: ""
     });
-  }
+  }; // End of clearErrorMessageAndSearchResults method
 
   /**
    * Main Render method
@@ -91,7 +88,7 @@ class App extends React.Component {
         <Spinner loading={this.state.loading} />
         {/*Search Results*/}
         <BusinessList businesses = {this.state.businesses} />
-        <Error errorMessage = {this.state.errorMessage} />
+        <ErrorMessage errorMessage = {this.state.errorMessage} />
       </div>
     );
   } // End of Main Render method
