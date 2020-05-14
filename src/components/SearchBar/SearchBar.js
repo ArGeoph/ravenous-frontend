@@ -76,6 +76,10 @@ export class SearchBar extends React.Component {
         }
     }
 
+    /**
+     *
+     * @param event
+     */
     handleSearch(event) {
 
         if (event.type === "click" || event.keyCode === 13) {
@@ -118,6 +122,10 @@ export class SearchBar extends React.Component {
         }
     }
 
+    /**
+     *
+     * @param value
+     */
     setTermValue(value) {
         this.setState({
             term: value
@@ -169,7 +177,9 @@ export class SearchBar extends React.Component {
                 <div className="SearchBar-fields">
                     <form method="#" onKeyDown={this.handleSearch} autoComplete="on" >
                         <div>
-                            <div className="inputFieldErrorMessage">{this.state.termError ? "The field cannot be empty" : undefined}</div>
+                            <div className="inputFieldErrorMessage">
+                                {this.state.termError ? "The field cannot be empty" : undefined}
+                            </div>
                             <input onChange={this.handleTermChange}
                                     placeholder="Search"
                                     value={this.state.term}
@@ -188,14 +198,17 @@ export class SearchBar extends React.Component {
                         </div>
 
                         <div>
-                            <div className="inputFieldErrorMessage">{this.state.locationError ? "The field cannot be empty" : undefined}</div>
-                            <input onChange={this.handleLocationChange}
-                                    onFocus={this.focusOnLocationField}
-                                    placeholder="Where?"
-                                    className={this.state.locationError ? "inputFieldError" : undefined}
-                                    ref='locationField'
-                                    id='locationField'
-                                    autoComplete='off'
+                            <div className="inputFieldErrorMessage">
+                                {this.state.locationError ? "The field cannot be empty" : undefined}
+                            </div>
+                            <input
+                                onChange={this.handleLocationChange}
+                                onFocus={this.focusOnLocationField}
+                                placeholder="Where?"
+                                className={this.state.locationError ? "inputFieldError" : undefined}
+                                ref='locationField'
+                                id='locationField'
+                                autoComplete='off'
                             />
                         </div>
                     </form>
