@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-image: url('./background_search_desktop.jpg');
+    background-image: url('../../assets/images/background_search_desktop.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     height: 22rem;
@@ -107,7 +107,7 @@
   
   @media only screen and (max-width: 890px) {
     .SearchBar {
-      background-image: url('./background_search_mobile.jpg');
+      background-image: url('../../assets/images/background_search_mobile.jpg');
     }
   
     .SearchBar-sort-options ul {

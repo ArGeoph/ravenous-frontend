@@ -171,7 +171,7 @@ export class SearchBar extends React.Component {
                         <div>
                             <div className="inputFieldErrorMessage">{this.state.termError ? "The field cannot be empty" : undefined}</div>
                             <input onChange={this.handleTermChange}
-                                    placeholder="Search Restaurants"
+                                    placeholder="Search"
                                     value={this.state.term}
                                     className={this.state.termError ? "inputFieldError" : undefined}
                                     ref='restaurantField'

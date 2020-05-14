@@ -4,8 +4,6 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import { faPhone } from '@fortawesome/free-solid-svg-icons';
-// import { faFacebook } from '@fortawesome/free-solid-svg-icons';
-// import { faPinterestF } from '@fortawesome/free-solid-svg-icons';
 
 library.add(faMapMarkerAlt, faPhone);
 
