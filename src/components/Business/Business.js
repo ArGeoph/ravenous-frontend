@@ -13,15 +13,15 @@ library.add(faMapMarkerAlt, faPhone);
 export const Business = (props) => {
     const {
         address,
-        city,
         category,
+        city,
         imageSrc,
         name,
-        state,
         phone,
         priceRange,
         rating,
         reviewCount,
+        state,
         url,
         zipCode
     } = props.business;
@@ -31,7 +31,7 @@ export const Business = (props) => {
             <div className='image-container'>
                 <img
                     src={ imageSrc }
-                    alt=''
+                    alt={ name }
                     loading='lazy'
                 />
 

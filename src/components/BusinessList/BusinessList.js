@@ -1,6 +1,6 @@
 import React from 'react';
-import './BusinessList.css';
 import { Business } from '../Business/Business';
+import './BusinessList.css';
 
 /**
  * Renders list of business tiles filled with information received from Yelp API
@@ -8,11 +8,10 @@ import { Business } from '../Business/Business';
  * @returns {*}
  * @constructor
  */
-export const BusinessList = React.memo((props) => {
+export const BusinessList = React.memo(({ businesses }) => {
     return (
         <div className='BusinessList'>
-            {/*Iterate through all business objects received from Yelp, and create an individual tile for each of them*/}
-            {props.businesses.map(business => <Business key={ business.id } business={ business } />)}
+            {businesses.map(business => <Business key={ business.id } business={ business } />)}
         </div>
     );
 });// End of BusinessList Component
