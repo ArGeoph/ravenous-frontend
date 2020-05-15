@@ -1,28 +1,26 @@
-import React from 'react';
+import React, { Component } from 'react';
 import getSuggestions from '../../utils/GetAutocompleteSuggestions';
 import './Autocomplete.css';
 
-class Autocomplete extends React.Component {
+class Autocomplete extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            suggestionsEnabled: this.props.suggestionsEnabled,
+            filteredSuggestions: [],
             suggestions: [],
-            filteredSuggestions: []
+            suggestionsEnabled: this.props.suggestionsEnabled,
         }
 
         this.handleClick = this.handleClick.bind(this);
     }
 
     // Create suggestion list from response from Yelp API, before autocomplete component is rendered
-    componentWillMount() {
-
+    componentDidMount() {
         getSuggestions(this.props).then((suggestions) => {
             this.setState({
                 suggestions: suggestions
             });
-
         });
     }
 
@@ -30,8 +28,9 @@ class Autocomplete extends React.Component {
     componentWillReceiveProps(props) {
         let filteredSuggestions;
 
-        // If autocompletion disabled or user already typed the whole word from autosuggestion list or the user input is blank
-        if(props.suggestionsEnabled === false || this.state.filteredSuggestions.includes(props.userInput) || props.userInput === "") {
+        // If autocompletion is disabled or user already typed the whole word from autocompletion list
+        // or if the user input is blank
+        if(!props.suggestionsEnabled || this.state.filteredSuggestions.includes(props.userInput) || !props.userInput) {
             this.setState({
                 suggestionsEnabled: false
             });
@@ -49,39 +48,35 @@ class Autocomplete extends React.Component {
         });
     }
 
-    // Handle click
+    // Handle selection of one of the autocompletion options
     handleClick(event) {
         this.props.setTermValue(event.currentTarget.innerHTML);
 
-        //Close all suggestions if user selected one
+        // Close all autocomplete suggestions if user selected one
         this.setState({
             suggestionsEnabled: false
         });
     }
 
     render() {
-        let output;
-
         // Check if there is any suggestions available
         if (this.state.suggestionsEnabled) {
-            output = (
-                <ul className="suggestions">
-                    {this.state.filteredSuggestions.map(element => {
-                        return <li className="suggestionItem"
-                                    key={element}
-                                    onClick={this.handleClick}
-                                    value={element}>
-                                        {element}
-                                </li>
+            return (
+                <ul className='suggestions'>
+                    {this.state.filteredSuggestions.map(autocompleteItem => {
+                        return (<li
+                                    className='suggestionItem'
+                                    key={ autocompleteItem }
+                                    onClick={ this.handleClick }
+                                    value={ autocompleteItem }
+                                >
+                            {autocompleteItem}
+                        </li>);
                     })}
                 </ul>
             );
         }
-        else { //If there's no any suggestions, we will return nothing, i.e. null
-            output = null;
-        }
-
-        return output;
+        return null;
     }
 }
 

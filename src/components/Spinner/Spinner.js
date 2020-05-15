@@ -12,10 +12,10 @@ export class Spinner extends React.Component {
             <div className="spinner-container">
                 <FadeLoader
                     css='margin-top: 10rem;'
-                    sizeUnit={"rem"}
-                    size={6}
-                    color={'black'}
-                    loading={this.props.loading}
+                    sizeUnit={ 'rem' }
+                    size={ 6 }
+                    color={ 'black' }
+                    loading={ this.props.loading }
                 />
             </div>
         );

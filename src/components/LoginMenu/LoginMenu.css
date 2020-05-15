@@ -5,7 +5,7 @@
     margin: 0 .4rem;
 }
 
-.Login button {
+.Login-Button {
     margin: .1rem .3rem;
     padding: 0 0;
     width: 8.05rem;
@@ -19,24 +19,15 @@
     background-color: transparent;
     border: none;
     text-align: right;
-    padding: 0 .6rem;
 }
 
-.Login button:hover {
+.Login-Button-Active {
     background-color: rgb(106, 202, 97);
-    color: white;
     font-weight: 800;
-    font-size: 1.05rem;
     text-align: center;
-    transition-duration: .4s;
+    transition-duration: .3s;
 }
 
-.Button-Active {
-    background-color: rgb(11, 51, 7);
-    color: white;
-    font-weight: 800;
-    font-size: 1.05rem;
-}
 .Login-Menu {
     position: absolute; 
     margin: 0 0;
@@ -64,4 +55,3 @@
         margin: 0 0;
     }
 }
-

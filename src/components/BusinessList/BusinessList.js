@@ -8,14 +8,12 @@ import { Business } from '../Business/Business';
  * @returns {*}
  * @constructor
  */
-export const BusinessList = React.memo(function BusinessList (props) {
+export const BusinessList = React.memo((props) => {
     return (
-        <div className="BusinessList">
+        <div className='BusinessList'>
             {/*Iterate through all business objects received from Yelp, and create an individual tile for each of them*/}
-            {props.businesses.map(business => {
-                return <Business key={business.id} business={business} />;
-            })}
+            {props.businesses.map(business => <Business key={ business.id } business={ business } />)}
         </div>
     );
-});// End of Functional Component
+});// End of BusinessList Component
 // End of file

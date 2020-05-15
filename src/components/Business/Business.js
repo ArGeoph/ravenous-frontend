@@ -30,8 +30,9 @@ export const Business = (props) => {
         <div className='Business'>
             <div className='image-container'>
                 <img
-                    src={imageSrc}
+                    src={ imageSrc }
                     alt=''
+                    loading='lazy'
                 />
 
                 <h2>{name}</h2>
@@ -39,13 +40,12 @@ export const Business = (props) => {
                     <div className='Business-address'>
                         <p>
                             <a
-                                href={`${GOOGLE_MAPS_URL}${address} ${city}`}
+                                href={ `${ GOOGLE_MAPS_URL }${ address } ${ city }` }
                                 target='_blank'
                                 rel='noopener noreferrer'
                             >
                                 {address} <FontAwesomeIcon icon='map-marker-alt' />
                             </a>
-
                         </p>
                         <p>{city}</p>
                         <p>{state} {zipCode}</p>
@@ -63,9 +63,9 @@ export const Business = (props) => {
                         <p>{reviewCount} review{reviewCount === 1 ? '' : 's'}</p>
                     </div>
                 </div>
-                <a href={url} target='_blank' rel='noopener noreferrer'>Open business's page</a>
+                <a href={ url } target='_blank' rel='noopener noreferrer'>Open business's page</a>
             </div>
         </div>
     );
-}// End of Business Class
+}// End of Business component
 // End of file

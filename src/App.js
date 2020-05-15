@@ -18,7 +18,7 @@ class App extends React.Component {
     this.state = {
       businesses: [],
       loading: false,
-      errorMessage: ""
+      errorMessage: ''
     };
   } // End of Constructor
 
@@ -29,7 +29,7 @@ class App extends React.Component {
    * @param sortBy
    */
   searchYelp = (term, location, sortBy) => {
-      // Set loading state to true, so spinner will be active until request to Yelp API is fulfilled
+      // Set loading state to true, so a spinner will be active until request to Yelp API is fulfilled
       this.setState({
         businesses: [],
         loading: true
@@ -41,7 +41,7 @@ class App extends React.Component {
           this.setState({
             loading: false,
             businesses: businesses,
-            errorMessage: ""
+            errorMessage: ''
           });
         }
         else {
@@ -60,7 +60,7 @@ class App extends React.Component {
   clearErrorMessageAndSearchResults = () => {
     this.setState({
       businesses: [],
-      errorMessage: ""
+      errorMessage: ''
     });
   }; // End of clearErrorMessageAndSearchResults method
 
@@ -70,26 +70,26 @@ class App extends React.Component {
    */
   render() {
     return (
-      <div className="App">
-        {/*Navigation Menu*/}
-        <nav className="NavMenu">
-          <div className="Logo">
-            <h1>Ravenous</h1>
-          </div>
-          <div className="LoginMenu">
-            <LoginMenu />
-          </div>
-        </nav>
-        {/*Search Bar*/}
-        <SearchBar
-            searchYelp = {this.searchYelp}
-            clearErrorMessageAndSearchResults = {this.clearErrorMessageAndSearchResults}
+        <div className="App">
+            {/*Navigation Menu*/}
+            <nav className="NavMenu">
+                <div className="Logo">
+                    <h1>Ravenous</h1>
+                </div>
+                <div className="LoginMenu">
+                    <LoginMenu />
+                </div>
+            </nav>
+            {/*Search Bar*/}
+            <SearchBar
+            searchYelp = { this.searchYelp }
+            clearErrorMessageAndSearchResults = { this.clearErrorMessageAndSearchResults }
         />
-        <Spinner loading={this.state.loading} />
-        {/*Search Results*/}
-        <BusinessList businesses = {this.state.businesses} />
-        <ErrorMessage errorMessage = {this.state.errorMessage} />
-      </div>
+            <Spinner loading={ this.state.loading } />
+            {/*Search Results*/}
+            <BusinessList businesses = { this.state.businesses } />
+            <ErrorMessage errorMessage = { this.state.errorMessage } />
+        </div>
     );
   } // End of Main Render method
 } // End of App class

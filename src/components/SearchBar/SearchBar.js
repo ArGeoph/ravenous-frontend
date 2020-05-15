@@ -1,12 +1,12 @@
 import React from 'react';
-import Autocomplete from './Autocomplete';
+import Autocomplete from '../Autocomplete/Autocomplete';
 import './SearchBar.css';
 
 // One of the object keys will be used to pass corresponding value to Yelp API to return results in accordance with user's choice
 const sortByOptions = {
-    'Best Match' : "best_match",
-    'Highest Rated' : "rating",
-    'Most Reviewed' : "review_count"
+    'Best Match' : 'best_match',
+    'Highest Rated' : 'rating',
+    'Most Reviewed' : 'review_count'
 };
 
 /**
@@ -71,7 +71,7 @@ export class SearchBar extends React.Component {
             sortBy: sortByOption
         });
 
-        if (this.state.term !== "" && this.state.location !== "") {
+        if (this.state.term !== '' && this.state.location !== '') {
             this.props.searchYelp(this.state.term, this.state.location, this.state.sortBy);
         }
     }
@@ -82,25 +82,25 @@ export class SearchBar extends React.Component {
      */
     handleSearch(event) {
 
-        if (event.type === "click" || event.keyCode === 13) {
+        if (event.type === 'click' || event.keyCode === 13) {
 
             // Call clearErrorMessageAndSearchResults function located in App.js to clear possible error message and previous search results
             this.props.clearErrorMessageAndSearchResults();
 
             // Check if user entered search request and location
-            if (this.state.location === "" && this.state.term === "") {
+            if (this.state.location === '' && this.state.term === '') {
                 this.setState({
                     termError: true,
                     locationError: true
                 });
               }
-            else if (this.state.term === "") {
+            else if (this.state.term === '') {
                 this.setState({
                     termError: true,
                     locationError: false
                 });
             }
-            else if (this.state.location === "") {
+            else if (this.state.location === '') {
                 this.setState({
                     termError: false,
                     locationError: true
@@ -151,13 +151,13 @@ export class SearchBar extends React.Component {
     // Will return li elements containing search options for users
     renderSortByOptions() {
         return Object.keys(sortByOptions).map( sortByOption => {
-            let sortByOptionValue = sortByOptions[sortByOption];
+            const sortByOptionValue = sortByOptions[ sortByOption ];
 
-            return <li className={this.getSortByClass(sortByOptionValue)}
-                        key={sortByOptionValue}
-                        onClick={this.handleSortByChange.bind(this, sortByOptionValue)} >
-                            {sortByOption}
-                    </li>
+            return <li className={ this.getSortByClass(sortByOptionValue) }
+                        key={ sortByOptionValue }
+                        onClick={ this.handleSortByChange.bind(this, sortByOptionValue) } >
+                {sortByOption}
+            </li>
         });
     }
 
@@ -175,37 +175,37 @@ export class SearchBar extends React.Component {
                 </div>
 
                 <div className="SearchBar-fields">
-                    <form method="#" onKeyDown={this.handleSearch} autoComplete="on" >
+                    <form method="#" onKeyDown={ this.handleSearch } autoComplete="on" >
                         <div>
                             <div className="inputFieldErrorMessage">
-                                {this.state.termError ? "The field cannot be empty" : undefined}
+                                {this.state.termError ? 'The field cannot be empty' : undefined}
                             </div>
-                            <input onChange={this.handleTermChange}
+                            <input onChange={ this.handleTermChange }
                                     placeholder="Search"
-                                    value={this.state.term}
-                                    className={this.state.termError ? "inputFieldError" : undefined}
+                                    value={ this.state.term }
+                                    className={ this.state.termError ? 'inputFieldError' : undefined }
                                     ref='restaurantField'
                                     id='restaurantField'
                                     autoComplete='off'
                                     autoFocus
                             />
                             <Autocomplete
-                                    userInput={this.state.term}
-                                    setTermValue={this.setTermValue}
-                                    suggestionsEnabled={this.state.termAutocompletionEnabled}
-                                    location={this.state.location}
+                                    userInput={ this.state.term }
+                                    setTermValue={ this.setTermValue }
+                                    suggestionsEnabled={ this.state.termAutocompletionEnabled }
+                                    location={ this.state.location }
                             />
                         </div>
 
                         <div>
                             <div className="inputFieldErrorMessage">
-                                {this.state.locationError ? "The field cannot be empty" : undefined}
+                                {this.state.locationError ? 'The field cannot be empty' : undefined}
                             </div>
                             <input
-                                onChange={this.handleLocationChange}
-                                onFocus={this.focusOnLocationField}
+                                onChange={ this.handleLocationChange }
+                                onFocus={ this.focusOnLocationField }
                                 placeholder="Where?"
-                                className={this.state.locationError ? "inputFieldError" : undefined}
+                                className={ this.state.locationError ? 'inputFieldError' : undefined }
                                 ref='locationField'
                                 id='locationField'
                                 autoComplete='off'
@@ -215,7 +215,7 @@ export class SearchBar extends React.Component {
                 </div>
 
                 <div className="SearchBar-submit">
-                    <button onClick={this.handleSearch}>Search</button>
+                    <button onClick={ this.handleSearch }>Search</button>
                 </div>
             </div>
         );

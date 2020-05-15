@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './LoginMenu.css';
 import { FacebookLoginButton, GoogleLoginButton, TwitterLoginButton } from 'react-social-login-buttons';
 
@@ -8,45 +8,30 @@ const style = {
     margin: '.1rem .3rem'
 }
 
-export class LoginMenu extends React.Component{
+export const LoginMenu = () => {
+    const [ isLoginMenuVisible, setLoginMenuVisibility ] = useState(false);
 
-    constructor(props) {
-        super(props);
+    return (
+        <div
+            className='Login'
+            onMouseEnter={ () => setLoginMenuVisibility(true) }
+            onMouseLeave={ () => setLoginMenuVisibility(false) }
+        >
+            <button className={ isLoginMenuVisible ? 'Login-Button Login-Button-Active' : 'Login-Button' }>
+                Log In With
+            </button>
 
-        this.state = {
-            showMenu: false
-        }
-        this.toggleButton = this.toggleButton.bind(this);             
-    }
-
-    toggleButton() {
-        this.setState({
-            showMenu: !this.state.showMenu
-        })
-    }
-
-    render() {
-        return (
-            <div className="Login"
-                onMouseEnter={this.toggleButton}  
-                onMouseLeave={this.toggleButton}>
-
-                <button className={this.state.showMenu ? 'Button-Active' : ''}>
-                    Log In With
-                </button>
-                
-                <div className={!this.state.showMenu ? 'Login-Menu hidden' : 'Login-Menu'}>
-                    <FacebookLoginButton style={style}>
-                        <span>Facebook</span> 
-                    </FacebookLoginButton>
-                    <GoogleLoginButton style={style}>
-                        <span>Google</span> 
-                    </GoogleLoginButton>
-                    <TwitterLoginButton style={style}>
-                        <span>Twitter</span> 
-                    </TwitterLoginButton>
-                </div>    
+            <div className={ isLoginMenuVisible ? 'Login-Menu' : 'Login-Menu hidden' }>
+                <FacebookLoginButton style={ style }>
+                    <span>Facebook</span>
+                </FacebookLoginButton>
+                <GoogleLoginButton style={ style }>
+                    <span>Google</span>
+                </GoogleLoginButton>
+                <TwitterLoginButton style={ style }>
+                    <span>Twitter</span>
+                </TwitterLoginButton>
             </div>
-        )
-    }
+        </div>
+    );
 } 
