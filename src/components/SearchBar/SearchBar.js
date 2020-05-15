@@ -1,18 +1,12 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Autocomplete from '../Autocomplete/Autocomplete';
 import './SearchBar.css';
-
-// One of the object keys will be used to pass corresponding value to Yelp API to return results in accordance with user's choice
-const sortByOptions = {
-    'Best Match' : 'best_match',
-    'Highest Rated' : 'rating',
-    'Most Reviewed' : 'review_count'
-};
+import { SORT_OPTIONS } from "../../utils/Constants";
 
 /**
  * Renders Search BarBusinessList
  */
-export class SearchBar extends React.Component {
+export class SearchBar extends Component {
 
     constructor(props) {
         super(props);
@@ -147,11 +141,10 @@ export class SearchBar extends React.Component {
 
 // Event handlers end
 // =======================================================================
-
     // Will return li elements containing search options for users
     renderSortByOptions() {
-        return Object.keys(sortByOptions).map( sortByOption => {
-            const sortByOptionValue = sortByOptions[ sortByOption ];
+        return Object.keys(SORT_OPTIONS).map( sortByOption => {
+            const sortByOptionValue = SORT_OPTIONS[ sortByOption ];
 
             return <li className={ this.getSortByClass(sortByOptionValue) }
                         key={ sortByOptionValue }
@@ -167,44 +160,45 @@ export class SearchBar extends React.Component {
      */
     render() {
         return (
-            <div className="SearchBar">
-                <div className="SearchBar-sort-options">
+            <div className='SearchBar'>
+                <div className='SearchBar-sort-options'>
                     <ul>
                         {this.renderSortByOptions()}
                     </ul>
                 </div>
 
-                <div className="SearchBar-fields">
-                    <form method="#" onKeyDown={ this.handleSearch } autoComplete="on" >
+                <div className='SearchBar-fields'>
+                    <form method='#' onKeyDown={ this.handleSearch } autoComplete='on' >
                         <div>
-                            <div className="inputFieldErrorMessage">
+                            <div className='inputFieldErrorMessage'>
                                 {this.state.termError ? 'The field cannot be empty' : undefined}
                             </div>
-                            <input onChange={ this.handleTermChange }
-                                    placeholder="Search"
-                                    value={ this.state.term }
-                                    className={ this.state.termError ? 'inputFieldError' : undefined }
-                                    ref='restaurantField'
-                                    id='restaurantField'
-                                    autoComplete='off'
-                                    autoFocus
+                            <input
+                                onChange={ this.handleTermChange }
+                                placeholder='Search'
+                                value={ this.state.term }
+                                className={ this.state.termError ? 'inputFieldError' : undefined }
+                                ref='restaurantField'
+                                id='restaurantField'
+                                autoComplete='off'
+                                autoFocus
                             />
                             <Autocomplete
-                                    userInput={ this.state.term }
-                                    setTermValue={ this.setTermValue }
-                                    suggestionsEnabled={ this.state.termAutocompletionEnabled }
-                                    location={ this.state.location }
+                                userInput={ this.state.term }
+                                setTermValue={ this.setTermValue }
+                                suggestionsEnabled={ this.state.termAutocompletionEnabled }
+                                location={ this.state.location }
                             />
                         </div>
 
                         <div>
-                            <div className="inputFieldErrorMessage">
+                            <div className='inputFieldErrorMessage'>
                                 {this.state.locationError ? 'The field cannot be empty' : undefined}
                             </div>
                             <input
                                 onChange={ this.handleLocationChange }
                                 onFocus={ this.focusOnLocationField }
-                                placeholder="Where?"
+                                placeholder='Where?'
                                 className={ this.state.locationError ? 'inputFieldError' : undefined }
                                 ref='locationField'
                                 id='locationField'
@@ -214,7 +208,7 @@ export class SearchBar extends React.Component {
                     </form>
                 </div>
 
-                <div className="SearchBar-submit">
+                <div className='SearchBar-submit'>
                     <button onClick={ this.handleSearch }>Search</button>
                 </div>
             </div>

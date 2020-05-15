@@ -59,7 +59,7 @@ class Autocomplete extends Component {
     }
 
     render() {
-        // Check if there is any suggestions available
+        // Check if there is any autocompletion suggestions available
         if (this.state.suggestionsEnabled) {
             return (
                 <ul className='suggestions'>
