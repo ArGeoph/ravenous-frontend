@@ -7,12 +7,11 @@ class Autocomplete extends Component {
         super(props);
 
         this.state = {
+            activeItem: null,
             filteredSuggestions: [],
             suggestions: [],
             suggestionsEnabled: this.props.suggestionsEnabled,
         }
-
-        this.handleClick = this.handleClick.bind(this);
     }
 
     // Create suggestion list from response from Yelp API, before autocomplete component is rendered
@@ -49,7 +48,7 @@ class Autocomplete extends Component {
     }
 
     // Handle selection of one of the autocompletion options
-    handleClick(event) {
+    handleClick = (event) => {
         this.props.setTermValue(event.currentTarget.innerHTML);
 
         // Close all autocomplete suggestions if user selected one
@@ -58,11 +57,15 @@ class Autocomplete extends Component {
         });
     }
 
+    handleKeyPress = (event) => {
+        console.log(event.keyCode);
+    }
+
     render() {
         // Check if there is any autocompletion suggestions available
         if (this.state.suggestionsEnabled) {
             return (
-                <ul className='suggestions'>
+                <ul className='suggestions' onKeyDown={ this.handleKeyPress }>
                     {this.state.filteredSuggestions.map(autocompleteItem => {
                         return (<li
                                     className='suggestionItem'
@@ -70,7 +73,7 @@ class Autocomplete extends Component {
                                     onClick={ this.handleClick }
                                     value={ autocompleteItem }
                                 >
-                            {autocompleteItem}
+                            { autocompleteItem }
                         </li>);
                     })}
                 </ul>

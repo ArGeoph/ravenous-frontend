@@ -35,7 +35,7 @@ export const Business = (props) => {
                     loading='lazy'
                 />
 
-                <h2>{name}</h2>
+                <h2>{ name }</h2>
                 <div className='Business-information'>
                     <div className='Business-address'>
                         <p>
@@ -44,26 +44,26 @@ export const Business = (props) => {
                                 target='_blank'
                                 rel='noopener noreferrer'
                             >
-                                {address} <FontAwesomeIcon icon='map-marker-alt' />
+                                { address } <FontAwesomeIcon icon='map-marker-alt' />
                             </a>
                         </p>
-                        <p>{city}</p>
-                        <p>{state} {zipCode}</p>
+                        <p>{ city }</p>
+                        <p>{ state } { zipCode }</p>
                         <p>
-                            {phone}<FontAwesomeIcon icon='phone' />
+                            { phone }<FontAwesomeIcon icon='phone' />
                         </p>
                     </div>
 
                     <div className='Business-reviews'>
-                        <h3>{category}</h3>
-                        <h3>{priceRange}</h3>
+                        <h3>{ category }</h3>
+                        <h3>{ priceRange }</h3>
                         <h3 className='rating'>
-                            {rating} star{rating > 0 && rating <= 1 ? '' : 's'}
+                            { rating } star{ rating > 0 && rating <= 1 ? '' : 's' }
                         </h3>
-                        <p>{reviewCount} review{reviewCount === 1 ? '' : 's'}</p>
+                        <p>{ reviewCount } review{ reviewCount === 1 ? '' : 's' }</p>
                     </div>
                 </div>
-                <a href={ url } target='_blank' rel='noopener noreferrer'>Open business's page</a>
+                <a href={ url } target='_blank' rel='noopener noreferrer'>Open restaurants's page</a>
             </div>
         </div>
     );

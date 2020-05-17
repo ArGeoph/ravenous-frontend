@@ -9,7 +9,7 @@ export class Spinner extends React.Component {
 
     render() {
         return (
-            <div className="spinner-container">
+            <div className='spinner-container'>
                 <FadeLoader
                     css='margin-top: 10rem;'
                     sizeUnit={ 'rem' }

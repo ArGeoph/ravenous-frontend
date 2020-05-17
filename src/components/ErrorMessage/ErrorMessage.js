@@ -8,6 +8,6 @@ import './ErrorMessage.css';
  * @constructor
  */
 export const ErrorMessage = React.memo(({ errorMessage }) => {
-    return <h3 className="error">{ errorMessage }</h3>;
+    return <h3 className='error'>{ errorMessage }</h3>;
 });// End of functional component
 // End of file

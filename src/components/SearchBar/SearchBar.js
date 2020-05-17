@@ -186,7 +186,7 @@ export class SearchBar extends Component {
                                 className={ this.state.locationError ? 'inputFieldError' : '' }
                                 ref='locationField'
                                 id='locationField'
-                                autoComplete='off'
+                                // autoComplete='off'
                             />
                         </div>
                     </form>

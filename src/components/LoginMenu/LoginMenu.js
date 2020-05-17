@@ -8,7 +8,7 @@ const style = {
     margin: '.1rem .3rem'
 }
 
-export const LoginMenu = () => {
+export const LoginMenu = React.memo(() => {
     const [ isLoginMenuVisible, setLoginMenuVisibility ] = useState(false);
 
     return (
@@ -34,4 +34,4 @@ export const LoginMenu = () => {
             </div>
         </div>
     );
-} 
+});

@@ -1,4 +1,4 @@
-const defaultAutocomplete = [ 'mcdonald"s', 'kfc', 'sushi', 'subway', 
+const defaultAutocomplete = [ 'mcdonald\'s', 'kfc', 'sushi', 'subway',
                             'pizza', 'steakhouse', 'korean', 'german', 
                             'french', 'ethiopian', 'arab', 'uzbek', 
                             'greek', 'italian', 'thai', 'vietnamese', 
