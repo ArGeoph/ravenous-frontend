@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Autocomplete from '../Autocomplete/Autocomplete';
 import './SearchBar.css';
-import { SORT_OPTIONS } from "../../utils/Constants";
+import { SORT_OPTIONS } from '../../utils/Constants';
 
 /**
  * Renders Search BarBusinessList
@@ -15,34 +15,16 @@ export class SearchBar extends Component {
         this.state = {
             term : '',
             location: '',
-            sortBy: 'best_match',
+            sortBy: SORT_OPTIONS[ 'Best Match' ],
             termError: false,
             locationError: false,
             termAutocompletionEnabled: false
         };
-
-        this.handleTermChange = this.handleTermChange.bind(this);
-        this.handleLocationChange = this.handleLocationChange.bind(this);
-        this.handleSearch = this.handleSearch.bind(this);
-        this.setTermValue = this.setTermValue.bind(this);
-        this.focusOnLocationField = this.focusOnLocationField.bind(this);
-    }
-
-    // Function checking if the current search option is selected and returning css class name active if it's the case
-    getSortByClass (sortByOption) {
-        if (sortByOption === this.state.sortBy) {
-            return 'active';
-        }
-        else {
-            return '';
-        }
     }
 
 //============================================================================
 // Event handlers
-
-    handleTermChange(event) {
-
+    handleTermChange = (event) => {
         this.setState({
             term: event.target.value,
             termError: event.target.value.length > 0 && false,
@@ -51,8 +33,7 @@ export class SearchBar extends Component {
         event.preventDefault();
     }
 
-    handleLocationChange(event) {
-
+    handleLocationChange = (event) => {
         this.setState({
             location: event.target.value,
             locationError: event.target.value.length > 0 && false
@@ -60,7 +41,6 @@ export class SearchBar extends Component {
     }
 
     handleSortByChange(sortByOption) {
-
         this.setState({
             sortBy: sortByOption
         });
@@ -74,8 +54,7 @@ export class SearchBar extends Component {
      *
      * @param event
      */
-    handleSearch(event) {
-
+    handleSearch = (event) => {
         if (event.type === 'click' || event.keyCode === 13) {
 
             // Call clearErrorMessageAndSearchResults function located in App.js to clear possible error message and previous search results
@@ -120,7 +99,7 @@ export class SearchBar extends Component {
      *
      * @param value
      */
-    setTermValue(value) {
+    setTermValue = (value) => {
         this.setState({
             term: value
         });
@@ -129,9 +108,11 @@ export class SearchBar extends Component {
         this.refs.locationField.focus();
     }
 
-    // Method will disable restaurants autocompletion if location input field gained focus
-
-    focusOnLocationField(event) {
+    /**
+     * Method disables restaurants autocompletion if location input field gained focus
+     * @param event
+     */
+    focusOnLocationField = (event) => {
         this.setState({
             termAutocompletionEnabled: false
         });
@@ -146,11 +127,14 @@ export class SearchBar extends Component {
         return Object.keys(SORT_OPTIONS).map( sortByOption => {
             const sortByOptionValue = SORT_OPTIONS[ sortByOption ];
 
-            return <li className={ this.getSortByClass(sortByOptionValue) }
-                        key={ sortByOptionValue }
-                        onClick={ this.handleSortByChange.bind(this, sortByOptionValue) } >
-                {sortByOption}
-            </li>
+            return (
+                <li
+                    className={ sortByOptionValue === this.state.sortBy ? 'active' : '' }
+                    key={ sortByOptionValue }
+                    onClick={ this.handleSortByChange.bind(this, sortByOptionValue) }
+                >
+                    {sortByOption}
+                </li>);
         });
     }
 
@@ -163,7 +147,7 @@ export class SearchBar extends Component {
             <div className='SearchBar'>
                 <div className='SearchBar-sort-options'>
                     <ul>
-                        {this.renderSortByOptions()}
+                        { this.renderSortByOptions() }
                     </ul>
                 </div>
 
@@ -171,13 +155,13 @@ export class SearchBar extends Component {
                     <form method='#' onKeyDown={ this.handleSearch } autoComplete='on' >
                         <div>
                             <div className='inputFieldErrorMessage'>
-                                {this.state.termError ? 'The field cannot be empty' : undefined}
+                                { this.state.termError ? 'The field cannot be empty' : '' }
                             </div>
                             <input
                                 onChange={ this.handleTermChange }
                                 placeholder='Search'
                                 value={ this.state.term }
-                                className={ this.state.termError ? 'inputFieldError' : undefined }
+                                className={ this.state.termError ? 'inputFieldError' : '' }
                                 ref='restaurantField'
                                 id='restaurantField'
                                 autoComplete='off'
@@ -193,13 +177,13 @@ export class SearchBar extends Component {
 
                         <div>
                             <div className='inputFieldErrorMessage'>
-                                {this.state.locationError ? 'The field cannot be empty' : undefined}
+                                { this.state.locationError ? 'The field cannot be empty' : '' }
                             </div>
                             <input
                                 onChange={ this.handleLocationChange }
                                 onFocus={ this.focusOnLocationField }
                                 placeholder='Where?'
-                                className={ this.state.locationError ? 'inputFieldError' : undefined }
+                                className={ this.state.locationError ? 'inputFieldError' : '' }
                                 ref='locationField'
                                 id='locationField'
                                 autoComplete='off'
