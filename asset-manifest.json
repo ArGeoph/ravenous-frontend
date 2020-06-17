@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/search-restaurants/static/css/main.7e5de377.chunk.css",
-    "main.js": "/search-restaurants/static/js/main.bafd6d30.chunk.js",
-    "main.js.map": "/search-restaurants/static/js/main.bafd6d30.chunk.js.map",
+    "main.js": "/search-restaurants/static/js/main.e3752118.chunk.js",
+    "main.js.map": "/search-restaurants/static/js/main.e3752118.chunk.js.map",
     "runtime-main.js": "/search-restaurants/static/js/runtime-main.90b46036.js",
     "runtime-main.js.map": "/search-restaurants/static/js/runtime-main.90b46036.js.map",
-    "static/js/2.607a4150.chunk.js": "/search-restaurants/static/js/2.607a4150.chunk.js",
-    "static/js/2.607a4150.chunk.js.map": "/search-restaurants/static/js/2.607a4150.chunk.js.map",
+    "static/js/2.b720de9c.chunk.js": "/search-restaurants/static/js/2.b720de9c.chunk.js",
+    "static/js/2.b720de9c.chunk.js.map": "/search-restaurants/static/js/2.b720de9c.chunk.js.map",
     "index.html": "/search-restaurants/index.html",
-    "precache-manifest.f87bf3fbc9d69bf690b439e8993ca48f.js": "/search-restaurants/precache-manifest.f87bf3fbc9d69bf690b439e8993ca48f.js",
+    "precache-manifest.92682fbe920b8d493dc03d68f3a1e2da.js": "/search-restaurants/precache-manifest.92682fbe920b8d493dc03d68f3a1e2da.js",
     "service-worker.js": "/search-restaurants/service-worker.js",
     "static/css/main.7e5de377.chunk.css.map": "/search-restaurants/static/css/main.7e5de377.chunk.css.map",
-    "static/js/2.607a4150.chunk.js.LICENSE.txt": "/search-restaurants/static/js/2.607a4150.chunk.js.LICENSE.txt",
+    "static/js/2.b720de9c.chunk.js.LICENSE.txt": "/search-restaurants/static/js/2.b720de9c.chunk.js.LICENSE.txt",
     "static/media/SearchBar.css": "/search-restaurants/static/media/background_search_mobile.5d0905e6.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.90b46036.js",
-    "static/js/2.607a4150.chunk.js",
+    "static/js/2.b720de9c.chunk.js",
     "static/css/main.7e5de377.chunk.css",
-    "static/js/main.bafd6d30.chunk.js"
+    "static/js/main.e3752118.chunk.js"
   ]
 }
