@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Autocomplete from '../Autocomplete/Autocomplete';
 import './SearchBar.css';
 import { SORT_OPTIONS } from '../../utils/Constants';
+import DotLoader from 'react-spinners/DotLoader';
 
 /**
  * Renders Search BarBusinessList
@@ -85,7 +86,7 @@ export class SearchBar extends Component {
                 this.setState({
                     termError: false,
                     locationError: false,
-                    loading: true
+                    isLoading: true
                 });
 
                 this.props.searchYelp(this.state.term, this.state.location, this.state.sortBy);
@@ -164,7 +165,6 @@ export class SearchBar extends Component {
                                 className={ this.state.termError ? 'inputFieldError' : '' }
                                 ref='restaurantField'
                                 id='restaurantField'
-                                autoComplete='off'
                                 autoFocus
                             />
                             <Autocomplete
@@ -186,14 +186,15 @@ export class SearchBar extends Component {
                                 className={ this.state.locationError ? 'inputFieldError' : '' }
                                 ref='locationField'
                                 id='locationField'
-                                // autoComplete='off'
                             />
                         </div>
                     </form>
                 </div>
 
                 <div className='SearchBar-submit'>
-                    <button onClick={ this.handleSearch }>Search</button>
+                    <button onClick={ this.handleSearch }>
+                        {this.props.isLoading ? <DotLoader  color='white' size='18'/> : 'Search'}
+                    </button>
                 </div>
             </div>
         );

@@ -15,7 +15,7 @@ export class Spinner extends React.Component {
                     sizeUnit={ 'rem' }
                     size={ 6 }
                     color={ 'black' }
-                    loading={ this.props.loading }
+                    loading={ this.props.isLoading }
                 />
             </div>
         );

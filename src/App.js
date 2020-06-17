@@ -17,7 +17,7 @@ class App extends React.Component {
     // Initialize state
     this.state = {
       businesses: [],
-      loading: false,
+      isLoading: false,
       errorMessage: ''
     };
   } // End of Constructor
@@ -29,26 +29,26 @@ class App extends React.Component {
    * @param sortBy
    */
   searchYelp = (term, location, sortBy) => {
-      // Set loading state to true, so a spinner will be active until request to Yelp API is fulfilled
+      // Set isLoading state to true, so a spinner will be active until request to Yelp API is fulfilled
       this.setState({
         businesses: [],
-        loading: true
+        isLoading: true
       });
 
       // Send request to Yelp API
       Yelp.search(term, location, sortBy).then((businesses) => {
         if (businesses.length > 0) {
           this.setState({
-            loading: false,
+            isLoading: false,
             businesses: businesses,
             errorMessage: ''
           });
         }
         else {
           this.setState({
-            loading: false,
+            isLoading: false,
             businesses: [],
-            errorMessage: `Your search hasn't returned any results. Please check your input or Internet connection`
+            errorMessage: 'Your search hasn\'t returned any results. Please check your input or Internet connection'
           })
         }
       });
@@ -84,8 +84,9 @@ class App extends React.Component {
             <SearchBar
                 searchYelp = { this.searchYelp }
                 clearErrorMessageAndSearchResults = { this.clearErrorMessageAndSearchResults }
+                isLoading={ this.state.isLoading }
             />
-            <Spinner loading={ this.state.loading } />
+            <Spinner isLoading={ this.state.isLoading } />
             {/*Search Results*/}
             <BusinessList businesses = { this.state.businesses } />
             <ErrorMessage errorMessage = { this.state.errorMessage } />
