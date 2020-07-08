@@ -4,9 +4,9 @@ const defaultAutocomplete = [ 'mcdonald\'s', 'kfc', 'sushi', 'subway',
                             'greek', 'italian', 'thai', 'vietnamese', 
                             'indian', 'chinese', 'russian', 'mexican', 
                             'american', 'cuban', 'ukrainian', 'canadian',
-                            'japanese', 'steak', 'downtown',
+                            'japanese', 'steak', 'downtown', 'shawarma',
                             'mediterranean', 'fast food', 'bbq', 'brazilian',
-                            'vegetarian', 'punjabi' ];
+                            'vegetarian', 'punjabi', 'korean', 'gujarati', 'pakistani'];
 
 const getSuggestions = async (location) => {
     return defaultAutocomplete;
