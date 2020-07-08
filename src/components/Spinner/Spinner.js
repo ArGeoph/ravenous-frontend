@@ -5,20 +5,15 @@ import './Spinner.css';
 /**
  * Renders Spinner
  */
-export class Spinner extends React.Component {
-
-    render() {
-        return (
-            <div className='spinner-container'>
-                <FadeLoader
-                    css='margin-top: 10rem;'
-                    sizeUnit={ 'rem' }
-                    size={ 6 }
-                    color={ 'black' }
-                    loading={ this.props.isLoading }
-                />
-            </div>
-        );
-    }
-} // End of Class
+export const Spinner = (props) =>
+    (<div className='spinner-container'>
+        <FadeLoader
+            css='margin-top: 10rem;'
+            sizeUnit={ 'rem' }
+            size={ 6 }
+            color={ 'black' }
+            loading={ props.isLoading }
+        />
+    </div>);
+// End of Functional Component
 // End of file
