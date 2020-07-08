@@ -1,6 +1,6 @@
 .suggestions {
     list-style: none;
-    margin: 0px -3px;
+    margin: 0 -3px;
     position: absolute;
 }
 
@@ -8,7 +8,7 @@
     background-color: white;
     width: 20rem;
     padding: .56rem 1rem;
-    margin: 0px 0rem;
+    margin: 0;
     border: 1px solid black;  
     border-bottom: none;
 }

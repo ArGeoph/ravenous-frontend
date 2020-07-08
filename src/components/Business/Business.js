@@ -4,7 +4,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import { faPhone } from '@fortawesome/free-solid-svg-icons';
-import { GOOGLE_MAPS_URL } from '../../utils/Constants';
+import { GOOGLE_MAPS_URL } from '../../utils/URLS';
 library.add(faMapMarkerAlt, faPhone);
 
 /**
