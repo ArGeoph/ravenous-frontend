@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/search-restaurants/static/css/main.7e5de377.chunk.css",
-    "main.js": "/search-restaurants/static/js/main.e3752118.chunk.js",
-    "main.js.map": "/search-restaurants/static/js/main.e3752118.chunk.js.map",
-    "runtime-main.js": "/search-restaurants/static/js/runtime-main.90b46036.js",
-    "runtime-main.js.map": "/search-restaurants/static/js/runtime-main.90b46036.js.map",
-    "static/js/2.b720de9c.chunk.js": "/search-restaurants/static/js/2.b720de9c.chunk.js",
-    "static/js/2.b720de9c.chunk.js.map": "/search-restaurants/static/js/2.b720de9c.chunk.js.map",
+    "main.css": "/search-restaurants/static/css/main.7ab51df0.chunk.css",
+    "main.js": "/search-restaurants/static/js/main.c5a3f9fc.chunk.js",
+    "main.js.map": "/search-restaurants/static/js/main.c5a3f9fc.chunk.js.map",
+    "runtime-main.js": "/search-restaurants/static/js/runtime-main.252889e5.js",
+    "runtime-main.js.map": "/search-restaurants/static/js/runtime-main.252889e5.js.map",
+    "static/js/2.cd5297ed.chunk.js": "/search-restaurants/static/js/2.cd5297ed.chunk.js",
+    "static/js/2.cd5297ed.chunk.js.map": "/search-restaurants/static/js/2.cd5297ed.chunk.js.map",
     "index.html": "/search-restaurants/index.html",
-    "precache-manifest.92682fbe920b8d493dc03d68f3a1e2da.js": "/search-restaurants/precache-manifest.92682fbe920b8d493dc03d68f3a1e2da.js",
+    "precache-manifest.562fcb6bd616bc54826907fed12673bd.js": "/search-restaurants/precache-manifest.562fcb6bd616bc54826907fed12673bd.js",
     "service-worker.js": "/search-restaurants/service-worker.js",
-    "static/css/main.7e5de377.chunk.css.map": "/search-restaurants/static/css/main.7e5de377.chunk.css.map",
-    "static/js/2.b720de9c.chunk.js.LICENSE.txt": "/search-restaurants/static/js/2.b720de9c.chunk.js.LICENSE.txt",
+    "static/css/main.7ab51df0.chunk.css.map": "/search-restaurants/static/css/main.7ab51df0.chunk.css.map",
+    "static/js/2.cd5297ed.chunk.js.LICENSE.txt": "/search-restaurants/static/js/2.cd5297ed.chunk.js.LICENSE.txt",
     "static/media/SearchBar.css": "/search-restaurants/static/media/background_search_mobile.5d0905e6.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.90b46036.js",
-    "static/js/2.b720de9c.chunk.js",
-    "static/css/main.7e5de377.chunk.css",
-    "static/js/main.e3752118.chunk.js"
+    "static/js/runtime-main.252889e5.js",
+    "static/js/2.cd5297ed.chunk.js",
+    "static/css/main.7ab51df0.chunk.css",
+    "static/js/main.c5a3f9fc.chunk.js"
   ]
 }
